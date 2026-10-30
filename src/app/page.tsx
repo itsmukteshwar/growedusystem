@@ -8,7 +8,6 @@ import { Hero } from "@/components/sections/home/Hero";
 import { Platforms } from "@/components/sections/home/Platforms";
 import { Process } from "@/components/sections/home/Process";
 import { Projects } from "@/components/sections/home/Projects";
-import { Resources } from "@/components/sections/home/Resources";
 import { Services } from "@/components/sections/home/Services";
 import { Stats } from "@/components/sections/home/Stats";
 import { Testimonials } from "@/components/sections/home/Testimonials";
@@ -32,7 +31,6 @@ export default function HomePage() {
       <Reveal><Testimonials /></Reveal>
       <Reveal><Platforms /></Reveal>
       <Reveal><Founder /></Reveal>
-      <Reveal><Resources /></Reveal>
       <Reveal><Faq /></Reveal>
       <Reveal offset={0}><FinalCta /></Reveal>
     </>

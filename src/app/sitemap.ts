@@ -3,6 +3,8 @@ import type { MetadataRoute } from "next";
 import { routes } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 
+export const dynamic = "force-static";
+
 /**
  * Generates /sitemap.xml. Add each new page here once it exists
  * (listing pages that 404 hurts SEO).

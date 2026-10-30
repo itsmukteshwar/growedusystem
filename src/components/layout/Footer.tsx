@@ -1,5 +1,4 @@
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
-import { cacheLife } from "next/cache";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/Container";
@@ -78,9 +77,7 @@ export function Footer() {
   );
 }
 
-/** Current year, prerendered and refreshed daily (keeps the page fully static). */
-async function CopyrightYear() {
-  "use cache";
-  cacheLife("days");
+/** Current year, rendered at build time. */
+function CopyrightYear() {
   return <>{new Date().getFullYear()}</>;
 }

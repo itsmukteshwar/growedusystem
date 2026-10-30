@@ -1,0 +1,168 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design tokens — Grow Edu System
+   Every colour, font and animation used on the site is defined here.
+   Change a value once and it updates everywhere.
+   ========================================================================== */
+
+@theme {
+  /* Fonts (CSS variables are injected by next/font in src/lib/fonts.ts) */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  /* Navy (primary brand) */
+  --color-navy-950: #0d1f3c;
+  --color-navy-900: #0d1b30;
+  --color-navy-800: #1a3660;
+  --color-navy-500: #4d77b8;
+  --color-navy-300: #9fb8dd;
+  --color-navy-200: #c5d6ef;
+  --color-navy-100: #dde5f0;
+  --color-navy-75: #e4ebf6;
+  --color-navy-50: #ebf0f9;
+  --color-navy-25: #f0f4fb;
+
+  /* Green (accent / call to action) */
+  --color-brand-700: #1a6b27;
+  --color-brand-600: #258735;
+  --color-brand-500: #3ab04b;
+  --color-brand-400: #5bc96a;
+  --color-brand-200: #a8e8b0;
+  --color-brand-50: #e8f8eb;
+
+  /* Neutrals & text */
+  --color-ink: #0d1b30;
+  --color-body: #3a4d68;
+  --color-muted: #5a6d88;
+  --color-line: #dde5f0;
+  --color-divider: #eef2f8;
+  --color-canvas: #f7f9fc;
+
+  /* Status */
+  --color-warn-500: #f59e0b;
+  --color-warn-800: #92400e;
+
+  /* Layout */
+  --container-site: 1240px;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --animate-slide-in: slide-in 0.7s var(--ease-out-soft) both;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-bar-run: bar-run 7s linear both;
+
+  @keyframes slide-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes bar-run {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+}
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-canvas font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-500;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Custom utilities (used like normal Tailwind classes)
+   ========================================================================== */
+
+/* Card hover lift */
+@utility lift {
+  transition:
+    transform 0.25s var(--ease-out-soft),
+    box-shadow 0.25s,
+    border-color 0.25s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px -18px rgb(13 31 60 / 0.28);
+    border-color: var(--color-navy-200);
+  }
+}
+
+/* Striped background shown while a real photo is not yet added */
+@utility bg-placeholder {
+  background-color: var(--color-navy-75);
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(26 54 96 / 0.055) 0 14px,
+    transparent 14px 28px
+  );
+}
+
+/* Dotted texture used on dark sections */
+@utility bg-dots {
+  background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ==========================================================================
+   Accessibility: respect reduced-motion preferences
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-float,
+  .animate-slide-in {
+    animation: none;
+  }
+  .animate-bar-run {
+    animation: none;
+    width: 100%;
+  }
+  .lift,
+  .lift:hover {
+    transition: none;
+    transform: none;
+  }
+}

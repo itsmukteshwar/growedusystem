@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Arrow } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ImageSlot } from "@/components/ui/ImageSlot";
+import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { processIntro, processSteps } from "@/data/home";
 import { cn } from "@/lib/utils";
@@ -14,14 +15,11 @@ export function Process() {
         <SectionHeader align="center" {...processIntro} />
 
         <ol className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5">
-          {processSteps.map((step) => (
-            <li
-              key={step.number}
-              className={cn(
-                "lift overflow-hidden rounded-[20px] border",
-                step.highlight ? "border-navy-800 bg-navy-800 text-white" : "border-line bg-canvas",
-              )}
-            >
+          {processSteps.map((step, i) => (
+            <Reveal key={step.number} delay={i * 90} as="li" className={cn(
+              "lift overflow-hidden rounded-[20px] border",
+              step.highlight ? "border-navy-800 bg-navy-800 text-white" : "border-line bg-canvas",
+            )}>
               <ImageSlot image={step.image} compact sizes="(min-width: 1024px) 25vw, 100vw" className="flex aspect-16/10 items-end p-3" />
               <div className="p-6">
                 <div className="mb-3.5 flex items-center justify-between">
@@ -56,7 +54,7 @@ export function Process() {
                   </Link>
                 )}
               </div>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </Container>

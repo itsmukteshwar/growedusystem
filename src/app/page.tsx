@@ -13,29 +13,28 @@ import { Services } from "@/components/sections/home/Services";
 import { Stats } from "@/components/sections/home/Stats";
 import { Testimonials } from "@/components/sections/home/Testimonials";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Reveal } from "@/components/ui/Reveal";
 import { faqs } from "@/data/home";
 import { faqSchema, graph } from "@/lib/schema";
-
-// The homepage inherits its title, description and canonical URL from app/layout.tsx.
 
 export default function HomePage() {
   return (
     <>
       <JsonLd data={graph(faqSchema(faqs))} />
       <Hero />
-      <Stats />
-      <About />
-      <Services />
-      <Process />
-      <Boards />
-      <CaseStudy />
-      <Projects />
-      <Testimonials />
-      <Platforms />
-      <Founder />
-      <Resources />
-      <Faq />
-      <FinalCta />
+      <Reveal offset={20}><Stats /></Reveal>
+      <Reveal><About /></Reveal>
+      <Reveal><Services /></Reveal>
+      <Reveal><Process /></Reveal>
+      <Reveal><Boards /></Reveal>
+      <Reveal><CaseStudy /></Reveal>
+      <Reveal><Projects /></Reveal>
+      <Reveal><Testimonials /></Reveal>
+      <Reveal><Platforms /></Reveal>
+      <Reveal><Founder /></Reveal>
+      <Reveal><Resources /></Reveal>
+      <Reveal><Faq /></Reveal>
+      <Reveal offset={0}><FinalCta /></Reveal>
     </>
   );
 }

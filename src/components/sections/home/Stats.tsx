@@ -1,4 +1,5 @@
 import { Container } from "@/components/ui/Container";
+import { Reveal } from "@/components/ui/Reveal";
 import { stats } from "@/data/home";
 import { cn } from "@/lib/utils";
 
@@ -9,8 +10,8 @@ export function Stats() {
         as="dl"
         className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] rounded-3xl border border-line bg-white shadow-[0_30px_60px_-34px_rgb(13_31_60/0.35)]"
       >
-        {stats.map(({ value, label, icon: Icon, tone }) => (
-          <div key={label} className="flex items-center gap-4.5 border-divider p-8 not-last:border-b sm:not-last:border-b-0 sm:not-last:border-r">
+        {stats.map(({ value, label, icon: Icon, tone }, i) => (
+          <Reveal key={label} delay={i * 80} offset={10} as="div" className="flex items-center gap-4.5 border-divider p-8 not-last:border-b sm:not-last:border-b-0 sm:not-last:border-r">
             <span
               className={cn(
                 "inline-flex size-13 shrink-0 items-center justify-center rounded-[14px]",
@@ -25,7 +26,7 @@ export function Stats() {
                 {value}
               </dd>
             </div>
-          </div>
+          </Reveal>
         ))}
       </Container>
     </section>

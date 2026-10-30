@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Arrow, ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ImageSlot } from "@/components/ui/ImageSlot";
+import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { consultantCallout, services, servicesIntro } from "@/data/home";
@@ -19,11 +20,11 @@ export function Services() {
         />
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-5">
-          {services.map((service) => (
+          {services.map((service, i) => (
+            <Reveal key={service.title} delay={i * 90} as="div">
             <Link
-              key={service.title}
               href={service.href}
-              className="lift group flex flex-col overflow-hidden rounded-3xl border border-line bg-white"
+              className="lift group flex flex-col overflow-hidden rounded-3xl border border-line bg-white h-full"
             >
               <ImageSlot image={service.image} sizes="(min-width: 1024px) 33vw, 100vw" className="flex aspect-16/10 items-end p-3.5">
                 {service.badge && (
@@ -40,9 +41,11 @@ export function Services() {
                 </span>
               </div>
             </Link>
+            </Reveal>
           ))}
         </div>
 
+        <Reveal offset={20}>
         <div className="mt-5 flex flex-wrap items-center justify-between gap-5 rounded-3xl border border-brand-200 bg-brand-50 px-7 py-6">
           <div className="flex min-w-0 items-center gap-4">
             <ImageSlot image={consultantCallout.image} hideLabel hideIcon sizes="56px" className="size-14 shrink-0 rounded-full border-3 border-white" />
@@ -55,6 +58,7 @@ export function Services() {
             {consultantCallout.cta.label}
           </ButtonLink>
         </div>
+        </Reveal>
       </Container>
     </Section>
   );

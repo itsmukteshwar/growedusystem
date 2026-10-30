@@ -32,6 +32,7 @@ src/
   components/
     layout/                Header, MobileNav, Footer, AnnouncementBar, Logo
     sections/home/         One file per homepage section (Hero, Stats, About, …)
+    sections/service/      Building blocks for guide pages (hero, contents, timeline, tables, FAQ)
     ui/                    Reusable building blocks (Button, Container, Section, ImageSlot, …)
     seo/                   JsonLd (structured data)
   config/
@@ -39,6 +40,10 @@ src/
     navigation.ts          Every URL + header/footer menus
   data/
     home.ts                All homepage text and image briefs
+    contact.ts             Contact page content and form options
+    services/              Content for Start a School, Feasibility & DPR and CBSE pages
+    images.ts              brief() helper + shared AI photo style
+    image-registry.ts      Collects every brief for /image-briefs
   lib/                     Helpers: fonts, schema.org builders, cn()
   styles/globals.css       Tailwind import + design tokens (colours, fonts, animations)
   types/                   Shared TypeScript types
@@ -48,12 +53,22 @@ src/
 
 ## Before going live
 
-1. **Contact details** — set `phoneDisplay`, `phoneHref`, `email` and `whatsappHref` in `src/config/site.ts`.
+1. **Contact details** — phone, WhatsApp, email and address are set in `src/config/site.ts` (change them there and they update everywhere).
 2. **Domain** — set `NEXT_PUBLIC_SITE_URL` (see `.env.example`). It drives canonical URLs, the sitemap and structured data.
 3. **Social profiles** — fill `social` in `src/config/site.ts`.
 4. **Placeholders** — replace every `[bracketed]` value in `src/data/home.ts`.
-5. **Photos** — put files in `public/images/` and add `src: "/images/your-photo.webp"` plus a descriptive `alt` to the matching brief (IMG-01 … IMG-34) in `src/data/home.ts`. Next.js resizes and serves them as WebP/AVIF automatically.
+5. **Photos** — see "Images" below.
 6. **Search Console** — add verification codes in `src/app/layout.tsx` (`metadata.verification`) and submit `/sitemap.xml`.
+
+## Images
+
+Every photo slot has a brief with an **ID, export size, file name, alt text and a ready-to-paste AI prompt**.
+
+- **See them all:** run `npm run dev` and open [http://localhost:3000/image-briefs](http://localhost:3000/image-briefs) (copy buttons for each prompt and file name), or read `docs/IMAGE-BRIEFS.md`.
+- **In the page:** while developing, each placeholder shows its brief.
+- **Add an image:** export it as `.webp` at the listed size and save it at `public/images/<file>` (e.g. `public/images/home/hero-start-a-school-site-visit.webp`). It replaces the placeholder automatically and is resized and optimised by Next.js.
+- **Real photos:** slots marked "Real photo required" (team, clients, projects we built, product screenshots) must use genuine photos before launch — the AI prompt is only for a temporary stand-in.
+- **Edit a brief:** briefs live next to the page content in `src/data` (built with `brief()` from `src/data/images.ts`, which also holds the shared photo style). Run `npm run images:list` to refresh `docs/IMAGE-BRIEFS.md`.
 
 ## Contact page & enquiry form
 

@@ -29,22 +29,27 @@ export const siteConfig = {
   foundingCountry: "IN",
 
   contact: {
-    // TODO: replace with real details. Leave `phoneHref` empty to hide phone links.
-    phoneDisplay: "[+91 PHONE]",
-    phoneHref: "", // e.g. "tel:+919876543210"
-    email: "hello@growedusystem.com",
-    whatsappHref: "", // e.g. "https://wa.me/919876543210"
+    phoneDisplay: "+91 87399 90953",
+    phoneHref: "tel:+918739990953",
+    /** Same number in international format, used in structured data. */
+    phoneE164: "+918739990953",
+    email: "growedusystem@gmail.com",
+    whatsappDisplay: "+91 87399 90953",
+    /** Opens WhatsApp with a ready-typed greeting. */
+    whatsappHref:
+      "https://wa.me/918739990953?text=" +
+      encodeURIComponent("Hello Grow Edu System, I'd like to know more about your school services."),
   },
 
-  // TODO: replace with your real office address — shown on /contact and in structured data.
+  /** Head office — shown in the footer and on /contact, and used in structured data. */
   address: {
-    street: "[Office address line]",
-    locality: "[City]",
-    region: "[State]",
-    postalCode: "[PIN]",
+    street: "LIG-10, Bharti Niketan, Huzur, Govindpura",
+    locality: "Bhopal",
+    region: "Madhya Pradesh",
+    postalCode: "462023",
     country: "IN",
-    /** Used for the "Get directions" link. */
-    mapsQuery: "Grow Edu System",
+    /** Used for the map and the "Get directions" link. */
+    mapsQuery: "LIG-10, Bharti Niketan, Govindpura, Bhopal, Madhya Pradesh 462023",
   },
 
   /**

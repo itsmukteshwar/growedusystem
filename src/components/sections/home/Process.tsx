@@ -1,3 +1,6 @@
+import Link from "next/link";
+
+import { Arrow } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { SectionHeader } from "@/components/ui/SectionHeader";
@@ -41,6 +44,17 @@ export function Process() {
                 <p className={cn("text-[15px] leading-[1.65]", step.highlight ? "text-white/78" : "text-body")}>
                   {step.description}
                 </p>
+                {step.href && (
+                  <Link
+                    href={step.href}
+                    className={cn(
+                      "group mt-4 inline-flex items-center gap-1.5 font-display text-sm font-bold",
+                      step.highlight ? "text-brand-400" : "text-navy-800",
+                    )}
+                  >
+                    Learn more<span className="sr-only">: {step.title}</span> <Arrow />
+                  </Link>
+                )}
               </div>
             </li>
           ))}

@@ -9,14 +9,28 @@ export interface NavGroup extends NavLink {
   children?: NavLink[];
 }
 
-/** Describes a photo slot. Add `src` once the real photo is in /public/images. */
+/**
+ * Describes a photo slot. Save the image as `public/images/<file>` and it
+ * replaces the placeholder automatically — no code change needed.
+ * Build briefs with `brief()` from src/data/images.ts.
+ */
 export interface ImageBrief {
+  /** Short reference, e.g. "HOME-01". */
   id: string;
-  spec: string;
-  title?: string;
-  description: string;
-  src?: string;
-  alt?: string;
+  /** Path inside public/images, e.g. "home/hero-start-a-school.webp". */
+  file: string;
+  /** Recommended export size in pixels (2× the largest display size). */
+  width: number;
+  height: number;
+  /** Aspect ratio label, e.g. "4:3". */
+  ratio: string;
+  title: string;
+  /** Alt text for screen readers and image search. */
+  alt: string;
+  /** Ready-to-paste prompt for an AI image generator. */
+  prompt: string;
+  /** Set when the slot shows a real person, client, project or product — use a real photo before launch. */
+  realPhoto?: string;
 }
 
 export interface Stat {
@@ -46,6 +60,8 @@ export interface ProcessStep {
   title: string;
   description: string;
   highlight?: boolean;
+  /** Optional page with more detail on this stage. */
+  href?: string;
   image: ImageBrief;
 }
 

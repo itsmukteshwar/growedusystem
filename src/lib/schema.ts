@@ -7,12 +7,25 @@ import { siteConfig } from "@/config/site";
 import type { Faq } from "@/types";
 
 const orgId = `${siteConfig.url}/#organization`;
+
+function postalAddress() {
+  const { address } = siteConfig;
+  return {
+    "@type": "PostalAddress",
+    streetAddress: address.street,
+    addressLocality: address.locality,
+    addressRegion: address.region,
+    postalCode: address.postalCode,
+    addressCountry: address.country,
+  };
+}
+
 const websiteId = `${siteConfig.url}/#website`;
 
 export function organizationSchema() {
-  const { phoneHref, email } = siteConfig.contact;
+  const { phoneE164: telephone, email } = siteConfig.contact;
+  const { address } = siteConfig;
   const sameAs = Object.values(siteConfig.social).filter(Boolean);
-  const telephone = phoneHref.replace(/^tel:/, "");
 
   return {
     "@type": ["Organization", "ProfessionalService"],
@@ -26,7 +39,9 @@ export function organizationSchema() {
     image: `${siteConfig.url}/opengraph-image`,
     description: siteConfig.description,
     email,
-    ...(telephone && { telephone }),
+    telephone,
+    address: postalAddress(),
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address.mapsQuery)}`,
     areaServed: { "@type": "Country", name: "India" },
     knowsAbout: [
       "School setup in India",
@@ -39,15 +54,13 @@ export function organizationSchema() {
       "School improvement and admissions growth",
     ],
     ...(sameAs.length > 0 && { sameAs }),
-    ...(telephone && {
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone,
-        contactType: "customer service",
-        areaServed: "IN",
-        availableLanguage: ["English", "Hindi"],
-      },
-    }),
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone,
+      contactType: "customer service",
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+    },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "School consulting services",
@@ -90,9 +103,8 @@ const dayUri = (d: number) =>
   `https://schema.org/${["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][d]}`;
 
 export function contactPageSchema() {
-  const { address, hours, contact } = siteConfig;
-  const telephone = contact.phoneHref.replace(/^tel:/, "");
-  const hasAddress = !address.street.startsWith("[");
+  const { hours, contact } = siteConfig;
+  const telephone = contact.phoneE164;
 
   return {
     "@type": "ContactPage",
@@ -102,16 +114,7 @@ export function contactPageSchema() {
     isPartOf: { "@id": websiteId },
     about: {
       "@id": orgId,
-      ...(hasAddress && {
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: address.street,
-          addressLocality: address.locality,
-          addressRegion: address.region,
-          postalCode: address.postalCode,
-          addressCountry: address.country,
-        },
-      }),
+      address: postalAddress(),
       openingHoursSpecification: hours.schedule.map((s) => ({
         "@type": "OpeningHoursSpecification",
         dayOfWeek: dayUri(s.day),
@@ -122,7 +125,7 @@ export function contactPageSchema() {
         "@type": "ContactPoint",
         contactType: "sales",
         email: contact.email,
-        ...(telephone && { telephone }),
+        telephone,
         areaServed: "IN",
         availableLanguage: ["English", "Hindi"],
       },
@@ -140,4 +143,32 @@ export function breadcrumbSchema(items: { name: string; path: string }[]) {
       item: new URL(item.path, siteConfig.url).toString(),
     })),
   };
+}
+
+/** Service + WebPage node for a service or guide page. */
+export function servicePageSchema(page: { path: string; title: string; description: string; updated: string; serviceName: string }) {
+  const url = new URL(page.path, siteConfig.url).toString();
+  return [
+    {
+      "@type": "WebPage",
+      "@id": `${url}#webpage`,
+      url,
+      name: page.title,
+      description: page.description,
+      inLanguage: "en-IN",
+      isPartOf: { "@id": websiteId },
+      dateModified: page.updated,
+      publisher: { "@id": orgId },
+    },
+    {
+      "@type": "Service",
+      "@id": `${url}#service`,
+      name: page.serviceName,
+      description: page.description,
+      serviceType: page.serviceName,
+      provider: { "@id": orgId },
+      areaServed: { "@type": "Country", name: "India" },
+      url,
+    },
+  ];
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown, Menu, Phone, X } from "lucide-react";
+import { ChevronDown, Menu, MessageCircle, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 
@@ -24,7 +24,7 @@ export function MobileNav() {
     };
   }, [open]);
 
-  const { phoneDisplay, phoneHref } = siteConfig.contact;
+  const { phoneDisplay, phoneHref, whatsappHref } = siteConfig.contact;
 
   return (
     <div className="min-[1081px]:hidden">
@@ -79,13 +79,25 @@ export function MobileNav() {
           <ButtonLink href={routes.consultation} size="lg" withArrow>
             Free Consultation
           </ButtonLink>
-          <a
-            href={phoneHref || routes.contact}
-            className="inline-flex items-center justify-center gap-2 rounded-xl border border-line py-3.5 font-display font-bold text-navy-800"
-          >
-            <Phone aria-hidden="true" className="size-4 text-brand-600" />
-            {phoneDisplay}
-          </a>
+          <div className="grid grid-cols-2 gap-3">
+            <a
+              href={phoneHref}
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-line py-3.5 font-display font-bold text-navy-800"
+            >
+              <Phone aria-hidden="true" className="size-4 text-brand-600" />
+              Call
+            </a>
+            <a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-line py-3.5 font-display font-bold text-navy-800"
+            >
+              <MessageCircle aria-hidden="true" className="size-4 text-brand-600" />
+              WhatsApp
+            </a>
+          </div>
+          <p className="text-center text-sm text-muted">{phoneDisplay}</p>
         </div>
       </div>
     </div>

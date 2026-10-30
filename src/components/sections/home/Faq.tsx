@@ -2,8 +2,8 @@ import { MessageCircle } from "lucide-react";
 
 import { ArrowLink, ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { ImageSlot } from "@/components/ui/ImageSlot";
 import { Eyebrow, SectionTitle } from "@/components/ui/SectionHeader";
-import { routes } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { faqIntro, faqs } from "@/data/home";
 
@@ -21,15 +21,16 @@ export function Faq() {
           <p className="mb-7 text-base leading-[1.7] text-body">{faqIntro.description}</p>
 
           <div className="flex items-start gap-4 rounded-[20px] border border-line bg-white p-6">
-            <span aria-hidden="true" className="size-14 shrink-0 rounded-full bg-placeholder" />
+            <ImageSlot image={faqIntro.helpImage} hideLabel hideIcon sizes="56px" className="size-14 shrink-0 rounded-full" />
             <div>
               <p className="mb-1 font-display font-extrabold text-ink">{faqIntro.helpTitle}</p>
               <p className="mb-3.5 text-sm leading-[1.6] text-body">{faqIntro.helpText}</p>
               <ButtonLink
-                href={siteConfig.contact.whatsappHref || routes.contact}
+                href={siteConfig.contact.whatsappHref}
                 variant="navy"
                 size="sm"
-                {...(siteConfig.contact.whatsappHref ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <MessageCircle aria-hidden="true" className="size-4" />
                 {faqIntro.helpCta}

@@ -5,10 +5,7 @@ import { Container } from "@/components/ui/Container";
 import { ImageSlot } from "@/components/ui/ImageSlot";
 import { Section } from "@/components/ui/Section";
 import { Eyebrow } from "@/components/ui/SectionHeader";
-import { siteConfig } from "@/config/site";
 import { founder } from "@/data/home";
-
-const teamAvatars = ["a", "b", "c", "d"];
 
 export function Founder() {
   return (
@@ -32,15 +29,21 @@ export function Founder() {
               <span className="block text-sm text-muted">{founder.role}</span>
             </figcaption>
             <div className="flex items-center gap-3.5">
-              <div aria-hidden="true" className="flex">
-                {teamAvatars.map((k) => (
-                  <span key={k} className="size-11 rounded-full border-3 border-canvas bg-placeholder not-first:-ml-3" />
+              <div className="flex">
+                {founder.team.map((member) => (
+                  <ImageSlot
+                    key={member.id}
+                    image={member}
+                    hideLabel
+                    hideIcon
+                    sizes="44px"
+                    className="size-11 rounded-full border-3 border-canvas not-first:-ml-3"
+                  />
                 ))}
               </div>
               <ArrowLink href={founder.cta.href}>{founder.cta.label}</ArrowLink>
             </div>
           </div>
-          {siteConfig.showImageBriefs && <p className="mt-2.5 text-xs text-muted">{founder.teamNote}</p>}
         </figure>
       </Container>
     </Section>

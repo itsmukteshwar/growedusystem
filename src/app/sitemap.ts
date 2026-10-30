@@ -9,7 +9,10 @@ import { siteConfig } from "@/config/site";
  */
 const livePages: { path: string; priority: number; changeFrequency: "weekly" | "monthly" | "yearly" }[] = [
   { path: routes.home, priority: 1, changeFrequency: "weekly" },
-  { path: routes.contact, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.startSchool, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.feasibility, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.cbse, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.contact, priority: 0.8, changeFrequency: "monthly" },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

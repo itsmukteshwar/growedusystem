@@ -16,7 +16,7 @@ import { breadcrumbSchema, contactPageSchema, graph } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Contact Us — Book a Free School Consultation",
   description:
-    "Talk to Grow Edu System's school consultants. Call, WhatsApp or send an enquiry about starting a CBSE, ICSE, IB or Cambridge school, school management or improvement. Reply within one working day.",
+    "Talk to Grow Edu System's school consultants in Bhopal. Call or WhatsApp +91 87399 90953, email growedusystem@gmail.com, or send an enquiry about starting a CBSE, ICSE, IB or Cambridge school. Reply within one working day.",
   alternates: { canonical: routes.contact },
   openGraph: {
     title: `Contact ${siteConfig.name} — Book a Free School Consultation`,
@@ -28,6 +28,7 @@ export default function ContactPage() {
   const { phoneDisplay, phoneHref, whatsappHref, email } = siteConfig.contact;
   const { address } = siteConfig;
   const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address.mapsQuery)}`;
+  const mapEmbedUrl = `https://maps.google.com/maps?q=${encodeURIComponent(address.mapsQuery)}&z=15&output=embed`;
 
   const channels = [
     {
@@ -35,15 +36,15 @@ export default function ContactPage() {
       label: "Call us",
       value: phoneDisplay,
       note: "Mon–Sat, during office hours",
-      href: phoneHref || undefined,
+      href: phoneHref,
       tone: "bg-navy-50 text-navy-800",
     },
     {
       icon: MessageCircle,
       label: "WhatsApp",
-      value: "Chat with a consultant",
-      note: "Usually replies within 2 hours",
-      href: whatsappHref || undefined,
+      value: siteConfig.contact.whatsappDisplay,
+      note: "Chat with a consultant · usually replies within 2 hours",
+      href: whatsappHref,
       external: true,
       tone: "bg-brand-50 text-brand-600",
     },
@@ -156,22 +157,23 @@ export default function ContactPage() {
             <OfficeHoursCard />
 
             <section aria-labelledby="office-title" className="overflow-hidden rounded-3xl border border-line bg-white">
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative flex h-40 items-center justify-center bg-placeholder"
-                aria-label="Open our office location in Google Maps"
-              >
-                <span className="inline-flex size-12 items-center justify-center rounded-full bg-navy-800 text-white shadow-lg transition-transform group-hover:-translate-y-1">
-                  <MapPin aria-hidden="true" className="size-5.5" />
-                </span>
-              </a>
+              <div className="relative h-52 bg-placeholder">
+                <MapPin aria-hidden="true" className="absolute top-1/2 left-1/2 size-8 -translate-x-1/2 -translate-y-1/2 text-navy-800/30" />
+                <iframe
+                  title={`Map showing ${siteConfig.name} head office in ${address.locality}`}
+                  src={mapEmbedUrl}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="relative size-full border-0"
+                />
+              </div>
               <div className="p-6">
                 <h2 id="office-title" className="mb-2 font-display text-lg font-extrabold text-ink">
                   Head office
                 </h2>
                 <address className="mb-4 text-sm leading-relaxed text-body not-italic">
+                  {siteConfig.name}
+                  <br />
                   {address.street}
                   <br />
                   {address.locality}, {address.region} {address.postalCode}
@@ -227,12 +229,15 @@ export default function ContactPage() {
           <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {departments.map((d) => (
               <li key={d.title}>
-                <a href={`mailto:${d.email}`} className="lift group flex h-full flex-col gap-2 rounded-[20px] border border-line bg-white p-6">
+                <a
+                  href={`mailto:${email}?subject=${encodeURIComponent(d.subject)}`}
+                  className="lift group flex h-full flex-col gap-2 rounded-[20px] border border-line bg-white p-6"
+                >
                   <h3 className="text-lg font-extrabold text-ink">{d.title}</h3>
                   <p className="flex-1 text-sm leading-[1.6] text-body">{d.description}</p>
                   <span className="mt-2 inline-flex items-center gap-1.5 truncate text-sm font-semibold text-navy-800">
                     <Mail aria-hidden="true" className="size-4 shrink-0" />
-                    {d.email}
+                    Email this team
                   </span>
                 </a>
               </li>

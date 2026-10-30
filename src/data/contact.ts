@@ -66,10 +66,10 @@ export const nextSteps = [
 ];
 
 export const departments = [
-  { title: "New schools & setup", description: "Feasibility, DPR, trust, affiliation and launch.", email: "setup@growedusystem.com" },
-  { title: "Existing schools", description: "Management, audits, admissions and training.", email: "schools@growedusystem.com" },
-  { title: "Platforms & ERP support", description: "School ERP, recruitment and marketplace help.", email: "support@growedusystem.com" },
-  { title: "Careers", description: "Join our consulting or technology teams.", email: "careers@growedusystem.com" },
+  { title: "New schools & setup", description: "Feasibility, DPR, trust, affiliation and launch.", subject: "New school setup enquiry" },
+  { title: "Existing schools", description: "Management, audits, admissions and training.", subject: "Existing school enquiry" },
+  { title: "Platforms & ERP support", description: "School ERP, recruitment and marketplace help.", subject: "Platforms & ERP support" },
+  { title: "Careers", description: "Join our consulting or technology teams.", subject: "Careers enquiry" },
 ];
 
 export const selfServe = [

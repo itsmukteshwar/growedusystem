@@ -4,6 +4,7 @@ import type { ReactNode } from "react";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { WhatsAppWidget } from "@/components/layout/WhatsAppWidget";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteConfig } from "@/config/site";
 import { inter, jakarta } from "@/lib/fonts";
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main id="main">{children}</main>
         <Footer />
+        <WhatsAppWidget />
       </body>
     </html>
   );

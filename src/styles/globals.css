@@ -195,3 +195,132 @@
     transform: none;
   }
 }
+
+/* ==========================================================================
+   WhatsApp widget (src/components/layout/WhatsAppWidget.tsx)
+   ========================================================================== */
+
+/* Launcher entrance: springy pop from the corner */
+.wa-launcher-pre {
+  opacity: 0;
+  transform: scale(0.4) translateY(12px);
+}
+.wa-launcher-in {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 3D flip: logo → "Hi!" → logo, every 7 seconds */
+.wa-flip {
+  transform-style: preserve-3d;
+}
+.wa-face {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.wa-back {
+  transform: rotateY(180deg);
+}
+.wa-flip-loop {
+  animation: wa-flip 7s cubic-bezier(0.65, 0, 0.35, 1) 2.5s infinite;
+}
+.wa-launcher:hover .wa-flip-loop,
+.wa-launcher:focus-visible .wa-flip-loop {
+  animation-play-state: paused;
+}
+@keyframes wa-flip {
+  0%, 62% { transform: perspective(600px) rotateY(0deg); }
+  70%, 86% { transform: perspective(600px) rotateY(180deg); }
+  94%, 100% { transform: perspective(600px) rotateY(360deg); }
+}
+
+/* Soft pulse rings */
+.wa-ring {
+  opacity: 0;
+  animation: wa-ring 3.5s cubic-bezier(0.2, 0.6, 0.35, 1) 1.5s infinite;
+}
+.wa-ring-2 {
+  animation-delay: 2.2s;
+}
+@keyframes wa-ring {
+  0% { opacity: 0.45; transform: scale(1); }
+  70%, 100% { opacity: 0; transform: scale(1.75); }
+}
+
+/* Panel grows out of the launcher (transform-origin: bottom right) */
+.wa-panel {
+  transition:
+    opacity 0.22s ease-out,
+    transform 0.32s cubic-bezier(0.32, 0.72, 0, 1),
+    visibility 0s linear 0s;
+}
+.wa-panel-closed {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(14px) scale(0.92);
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease-in,
+    transform 0.2s ease-in,
+    visibility 0s linear 0.2s;
+}
+.wa-panel-open {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.wa-panel-open .wa-bubble {
+  animation: wa-bubble 0.35s cubic-bezier(0.34, 1.4, 0.64, 1) 0.12s both;
+}
+@keyframes wa-bubble {
+  from { opacity: 0; transform: translateY(6px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Teaser speech bubble */
+.wa-teaser {
+  transform-origin: bottom right;
+  transition:
+    opacity 0.25s ease-out,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    visibility 0s linear 0s;
+}
+.wa-teaser-out {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.9);
+  pointer-events: none;
+  transition:
+    opacity 0.2s ease-in,
+    transform 0.2s ease-in,
+    visibility 0s linear 0.2s;
+}
+.wa-teaser-in {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-flip-loop,
+  .wa-ring,
+  .wa-panel-open .wa-bubble {
+    animation: none;
+  }
+  .wa-ring {
+    display: none;
+  }
+  .wa-launcher-pre,
+  .wa-panel-closed,
+  .wa-teaser-out {
+    transform: none;
+  }
+  .wa-launcher-in,
+  .wa-panel,
+  .wa-teaser {
+    transition: opacity 0.2s ease;
+  }
+}

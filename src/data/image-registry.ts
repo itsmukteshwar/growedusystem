@@ -4,12 +4,15 @@
  */
 import { routes } from "@/config/navigation";
 import * as home from "@/data/home";
+import * as boardingMgmt from "@/data/services/boarding-school-management";
 import * as cambridge from "@/data/services/cambridge-igcse";
 import * as cbse from "@/data/services/cbse";
 import * as compareBoards from "@/data/services/compare-boards";
+import * as dayMgmt from "@/data/services/day-school-management";
 import * as feasibility from "@/data/services/feasibility-dpr";
 import * as ib from "@/data/services/ib";
 import * as icse from "@/data/services/icse";
+import * as management from "@/data/services/school-management";
 import * as startSchool from "@/data/services/start-a-school";
 import * as stateBoard from "@/data/services/state-board";
 import type { ImageBrief } from "@/types";
@@ -42,4 +45,7 @@ export const imageGroups = [
   { page: "Cambridge IGCSE Setup", path: routes.igcse, images: [...collect(cambridge).values()].sort(byId) },
   { page: "State Board Setup", path: routes.stateBoard, images: [...collect(stateBoard).values()].sort(byId) },
   { page: "Compare Boards", path: routes.compareBoards, images: [...collect(compareBoards).values()].sort(byId) },
+  { page: "School Management", path: routes.management, images: [...collect(management).values()].sort(byId) },
+  { page: "Day School Management", path: routes.dayManagement, images: [...collect(dayMgmt).values()].sort(byId) },
+  { page: "Boarding School Management", path: routes.boardingManagement, images: [...collect(boardingMgmt).values()].sort(byId) },
 ];

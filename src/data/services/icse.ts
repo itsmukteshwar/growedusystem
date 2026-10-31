@@ -28,9 +28,9 @@ export const page: BoardGuideData = {
   serviceName: "ICSE (CISCE) school setup and affiliation consultancy",
   meta: {
     path: routes.icse,
-    title: "How to Start an ICSE School in India (2026 Guide) — CISCE Affiliation Process",
+    title: "How to Start an ICSE School (CISCE Guide)",
     description:
-      "Complete guide to starting an ICSE school: CISCE eligibility, NOC and Certificate of Land, lab and library requirements, the online affiliation process, documents and timelines — with consultants who handle it end to end.",
+      "Start an ICSE school: CISCE eligibility, state NOC, Certificate of Land, lab and library needs, the affiliation process, documents and timelines.",
     keywords: [
       "how to start an ICSE school",
       "CISCE affiliation process",

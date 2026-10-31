@@ -1,5 +1,4 @@
 import { Award, BookOpen, Building2, ChevronRight, Globe, Target, Users } from "lucide-react";
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -7,19 +6,21 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionTitle } from "@/components/ui/SectionHeader";
 import { routes } from "@/config/navigation";
-import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "About Grow Edu System — India's End-to-End School Consultants",
-  description:
-    "Learn how Grow Edu System has helped promoters establish and grow K-12 schools across India since 2012 — from feasibility studies to affiliation, hiring, ERP and admissions growth.",
-  alternates: { canonical: routes.about },
-  openGraph: {
-    title: `About ${siteConfig.name}`,
-    url: routes.about,
+export const metadata = pageMetadata(
+  {
+    path: routes.about,
+    title: "About Us — Our Story & Approach",
+    description:
+      "Grow Edu System helps promoters plan, establish, manage and improve K-12 schools across India, with in-house experts for every stage of a school's life.",
+    keywords: ["about Grow Edu System", "school consultants India", "school consultancy company", "K-12 school consultants"],
+    updated: "2026-10-31",
   },
-};
+  undefined,
+  "website",
+);
 
 const milestones = [
   { year: "2012", title: "Founded in Bhopal", body: "Started as a boutique school-setup consultancy to fill the gap between a promoter's vision and the regulatory maze of starting a school in India." },

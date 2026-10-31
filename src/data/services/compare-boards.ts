@@ -14,9 +14,9 @@ import type { IconItem, PageHeroData, PageMeta, RelatedLink, TableData } from "@
 
 export const meta: PageMeta = {
   path: routes.compareBoards,
-  title: "CBSE vs ICSE vs IB vs Cambridge vs State Board — Which Board to Choose for a New School",
+  title: "CBSE vs ICSE vs IB vs IGCSE: Which Board?",
   description:
-    "Compare CBSE, ICSE, IB, Cambridge IGCSE and State Boards for starting a school in India: who approves them, land and setup norms, timelines, costs, parent demand and how to choose the right board for your location.",
+      "Compare CBSE, ICSE, IB, Cambridge and State Boards for a new school in India: approvals, land norms, timelines, costs and parent demand — and how to choose.",
   keywords: [
     "CBSE vs ICSE vs IB vs IGCSE",
     "which board is best for a new school",

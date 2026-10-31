@@ -22,7 +22,7 @@ import type { Faq, ImageBrief, NavLink } from "@/types";
 import type { IconItem, PageHeroData, PageMeta, RelatedLink, TableData, TimelineStep } from "@/types/service";
 
 /**
- * Shared layout for the School Management service pages (day school, boarding school).
+ * Shared layout for long-form service pages (School Management and School Improvement sections).
  * Section ids are fixed so the table of contents in each data module stays in sync.
  */
 export interface ManagementGuideData {
@@ -30,6 +30,8 @@ export interface ManagementGuideData {
   meta: PageMeta;
   hero: PageHeroData;
   toc: { id: string; label: string }[];
+  /** Optional overrides for the small labels above each section heading. */
+  eyebrows?: Partial<Record<"scope" | "models" | "kpis" | "compliance" | "signs", string>>;
   titles: {
     overview: string;
     scope: string;
@@ -61,6 +63,14 @@ export interface ManagementGuideData {
 
 export function ManagementGuide({ page }: { page: ManagementGuideData }) {
   const t = page.titles;
+  const e = {
+    scope: "What we manage",
+    models: "Engagement models",
+    kpis: "Accountability",
+    compliance: "Compliance",
+    signs: "Is it time?",
+    ...page.eyebrows,
+  };
   return (
     <>
       <JsonLd
@@ -97,7 +107,7 @@ export function ManagementGuide({ page }: { page: ManagementGuideData }) {
               <ul className="flex flex-col gap-2.5">
                 {page.overview.fit.items.map((item) => (
                   <li key={item} className="flex gap-2.5 text-[15px] text-body">
-                    <Minus aria-hidden="true" className="mt-0.5 size-4.5 shrink-0 text-navy-800" strokeWidth={3} />
+                    <Minus aria-hidden="true" className="mt-0.5 size-4.5 shrink-0 text-navy-600" strokeWidth={3} />
                     {item}
                   </li>
                 ))}
@@ -106,7 +116,7 @@ export function ManagementGuide({ page }: { page: ManagementGuideData }) {
           </div>
         </ContentSection>
 
-        <ContentSection id="scope" eyebrow="What we manage" title={t.scope} intro={<p>{page.scope.intro}</p>}>
+        <ContentSection id="scope" eyebrow={e.scope} title={t.scope} intro={<p>{page.scope.intro}</p>}>
           <IconGrid items={page.scope.items} />
         </ContentSection>
 
@@ -116,7 +126,7 @@ export function ManagementGuide({ page }: { page: ManagementGuideData }) {
           </MediaSplit>
         </ContentSection>
 
-        <ContentSection id="models" eyebrow="Engagement models" title={t.models} intro={<p>{page.models.intro}</p>}>
+        <ContentSection id="models" eyebrow={e.models} title={t.models} intro={<p>{page.models.intro}</p>}>
           <DataTable table={page.models.table} />
         </ContentSection>
 
@@ -124,11 +134,11 @@ export function ManagementGuide({ page }: { page: ManagementGuideData }) {
           <Timeline steps={page.process.steps} />
         </ContentSection>
 
-        <ContentSection id="kpis" eyebrow="Accountability" title={t.kpis} intro={<p>{page.kpis.intro}</p>}>
+        <ContentSection id="kpis" eyebrow={e.kpis} title={t.kpis} intro={<p>{page.kpis.intro}</p>}>
           <DataTable table={page.kpis.table} />
         </ContentSection>
 
-        <ContentSection id="compliance" eyebrow="Compliance" title={t.compliance} intro={<p>{page.compliance.intro}</p>}>
+        <ContentSection id="compliance" eyebrow={e.compliance} title={t.compliance} intro={<p>{page.compliance.intro}</p>}>
           <Checklist items={page.compliance.items} />
           {page.compliance.callout && (
             <div className="mt-6">
@@ -139,7 +149,7 @@ export function ManagementGuide({ page }: { page: ManagementGuideData }) {
           )}
         </ContentSection>
 
-        <ContentSection id="signs" eyebrow="Is it time?" title={t.signs}>
+        <ContentSection id="signs" eyebrow={e.signs} title={t.signs}>
           <ul className="grid gap-4 sm:grid-cols-2">
             {page.signs.map((s) => (
               <li key={s.title} className="rounded-[20px] border border-line bg-white p-5.5">

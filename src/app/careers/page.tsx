@@ -1,24 +1,25 @@
 import { Briefcase, ChevronRight, Clock, Heart, MapPin, TrendingUp, Users, Zap } from "lucide-react";
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionTitle } from "@/components/ui/SectionHeader";
 import { routes } from "@/config/navigation";
-import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, graph } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Careers at Grow Edu System — Join India's Leading School Consultants",
-  description:
-    "Join Grow Edu System and help shape the future of K-12 education in India. We're hiring a Business Development Manager to expand our school consultancy practice.",
-  alternates: { canonical: routes.careers },
-  openGraph: {
-    title: `Careers at ${siteConfig.name}`,
-    url: routes.careers,
+export const metadata = pageMetadata(
+  {
+    path: routes.careers,
+    title: "Careers — Join Our School Consulting Team",
+    description:
+      "Join Grow Edu System and help build better schools across India. We're hiring a Business Development Manager — see the role and apply by email.",
+    keywords: ["Grow Edu System careers", "education consulting jobs", "business development manager education", "school consultancy jobs India"],
+    updated: "2026-10-31",
   },
-};
+  undefined,
+  "website",
+);
 
 const perks = [
   {

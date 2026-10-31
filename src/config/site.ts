@@ -9,7 +9,7 @@ export const siteConfig = {
   url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.growedusystem.com").replace(/\/$/, ""),
   tagline: "From vision to inauguration — India's end-to-end school consultants.",
   description:
-    "Grow Edu System helps promoters start, manage and grow K-12 schools across India — feasibility & DPR, trust registration, CBSE, ICSE, IB, Cambridge and State Board affiliation, hiring, school management, ERP and admissions growth.",
+    "Grow Edu System helps promoters start, manage and grow K-12 schools in India: feasibility & DPR, board affiliation, school management and admissions growth.",
   keywords: [
     "school consultants in India",
     "how to start a school in India",

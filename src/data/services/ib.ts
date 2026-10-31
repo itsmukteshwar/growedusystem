@@ -28,9 +28,9 @@ export const page: BoardGuideData = {
   serviceName: "IB World School setup and authorization consultancy",
   meta: {
     path: routes.ib,
-    title: "How to Start an IB School in India (2026 Guide) — Authorization, PYP, MYP & DP",
+    title: "How to Start an IB School in India (2026)",
     description:
-      "Step-by-step guide to becoming an IB World School in India: choosing PYP, MYP, DP or CP, the consideration and candidacy phases, teacher training, the verification visit, costs and timelines — with consultants who guide you to authorization.",
+      "Become an IB World School in India: choosing PYP, MYP or DP, candidacy and teacher training, the verification visit, costs and a realistic timeline.",
     keywords: [
       "how to start an IB school in India",
       "IB authorization process",

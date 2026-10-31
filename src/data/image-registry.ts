@@ -4,6 +4,7 @@
  */
 import { routes } from "@/config/navigation";
 import * as home from "@/data/home";
+import * as admissions from "@/data/services/admissions-growth";
 import * as boardingMgmt from "@/data/services/boarding-school-management";
 import * as cambridge from "@/data/services/cambridge-igcse";
 import * as cbse from "@/data/services/cbse";
@@ -12,9 +13,12 @@ import * as dayMgmt from "@/data/services/day-school-management";
 import * as feasibility from "@/data/services/feasibility-dpr";
 import * as ib from "@/data/services/ib";
 import * as icse from "@/data/services/icse";
+import * as audit from "@/data/services/school-audit";
+import * as improvement from "@/data/services/school-improvement";
 import * as management from "@/data/services/school-management";
 import * as startSchool from "@/data/services/start-a-school";
 import * as stateBoard from "@/data/services/state-board";
+import * as training from "@/data/services/teacher-training";
 import type { ImageBrief } from "@/types";
 
 function isBrief(value: unknown): value is ImageBrief {
@@ -48,4 +52,8 @@ export const imageGroups = [
   { page: "School Management", path: routes.management, images: [...collect(management).values()].sort(byId) },
   { page: "Day School Management", path: routes.dayManagement, images: [...collect(dayMgmt).values()].sort(byId) },
   { page: "Boarding School Management", path: routes.boardingManagement, images: [...collect(boardingMgmt).values()].sort(byId) },
+  { page: "School Improvement", path: routes.improvement, images: [...collect(improvement).values()].sort(byId) },
+  { page: "School Audit", path: routes.audit, images: [...collect(audit).values()].sort(byId) },
+  { page: "Admissions Growth", path: routes.admissions, images: [...collect(admissions).values()].sort(byId) },
+  { page: "Teacher Training", path: routes.training, images: [...collect(training).values()].sort(byId) },
 ];

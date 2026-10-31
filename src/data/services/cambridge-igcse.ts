@@ -27,9 +27,9 @@ export const page: BoardGuideData = {
   serviceName: "Cambridge International (IGCSE) school setup and registration consultancy",
   meta: {
     path: routes.igcse,
-    title: "How to Start a Cambridge IGCSE School in India (2026 Guide) — Registration Process",
+    title: "Start a Cambridge IGCSE School in India",
     description:
-      "Guide to becoming a Cambridge International school in India: programmes from Early Years to A Level, the four-step registration process, approval visit, infrastructure, teachers, documents and timelines — with consultants who handle it end to end.",
+      "How to become a Cambridge International school in India: programmes, the registration process and approval visit, infrastructure, staff and timelines.",
     keywords: [
       "how to start a Cambridge school in India",
       "IGCSE affiliation",

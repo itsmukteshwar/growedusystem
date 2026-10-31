@@ -14,7 +14,7 @@ import "@/styles/globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — School Consultants in India | Start, Manage & Grow Schools`,
+    default: `${siteConfig.name} — School Consultants in India`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -32,11 +32,13 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: `${siteConfig.name} — School Consultants in India`,
     description: siteConfig.description,
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: `${siteConfig.name} — School consultants in India` }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — School Consultants in India`,
     description: siteConfig.description,
+    images: ["/og-default.jpg"],
   },
   robots: {
     index: true,

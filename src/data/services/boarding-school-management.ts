@@ -26,9 +26,9 @@ export const page: ManagementGuideData = {
   serviceName: "Boarding and residential school management services",
   meta: {
     path: routes.boardingManagement,
-    title: "Boarding School Management Services in India — Residential Life, Safety & Operations",
+    title: "Boarding School Management Services",
     description:
-      "Professional boarding school management in India: house parents and wardens, 24×7 pastoral care, hostel operations, dining and nutrition, health centre, child safeguarding, academics and admissions — run by one accountable team.",
+      "Boarding school management in India: house parents, 24×7 pastoral care, safeguarding, hostel dining and health — plus academics and admissions, run by one team.",
     keywords: [
       "boarding school management services",
       "residential school management India",

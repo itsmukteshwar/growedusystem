@@ -6,9 +6,9 @@ import type { PageHeroData, PageMeta, TimelineStep } from "@/types/service";
 
 export const meta: PageMeta = {
   path: routes.startSchool,
-  title: "Start a School in India — End-to-End School Setup Consultants",
+  title: "Start a School in India — Setup Consultants",
   description:
-    "Planning to start a school in India? Grow Edu System takes you from feasibility study and DPR to trust registration, land, construction, CBSE, ICSE, IB or Cambridge affiliation, hiring and your first admissions.",
+      "Start a school in India with one team: feasibility & DPR, trust registration, land, construction, CBSE, ICSE, IB or Cambridge affiliation, hiring and admissions.",
   keywords: ["start a school in India", "how to open a school", "school setup consultants", "school establishment services", "new school project"],
   updated: "2026-10-30",
 };

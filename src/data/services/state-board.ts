@@ -28,9 +28,9 @@ export const page: BoardGuideData = {
   serviceName: "State Board school setup and recognition consultancy",
   meta: {
     path: routes.stateBoard,
-    title: "How to Start a State Board School in India (2026 Guide) — RTE Recognition & Permission",
+    title: "How to Start a State Board School in India",
     description:
-      "Guide to opening a State Board school: RTE Act recognition norms, state permission and essentiality certificates, land and building rules, teacher eligibility, documents and timelines — with consultants who handle approvals in your state.",
+      "Open a State Board school: RTE recognition norms, state permission and essentiality certificates, land and building rules, teacher eligibility and documents.",
     keywords: [
       "how to start a state board school",
       "school recognition under RTE",

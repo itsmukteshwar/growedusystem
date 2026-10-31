@@ -27,9 +27,9 @@ import type { IconItem, PageHeroData, PageMeta, RelatedLink, TableData, Timeline
 
 export const meta: PageMeta = {
   path: routes.feasibility,
-  title: "School Feasibility Study & DPR (Detailed Project Report) in India",
+  title: "School Feasibility Study & DPR in India",
   description:
-    "Plan your school on facts. Grow Edu System's school feasibility study covers catchment demand, competition, board, fees and land norms, and our bank-ready DPR includes a 10-year financial model, project cost and break-even.",
+      "Test demand, fees and costs before you build. Our school feasibility study and DPR give promoters and banks a clear, investor-ready plan for a new school.",
   keywords: [
     "school feasibility study",
     "school feasibility report",

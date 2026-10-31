@@ -18,9 +18,9 @@ import type { IconItem, PageHeroData, PageMeta, TimelineStep } from "@/types/ser
 
 export const meta: PageMeta = {
   path: routes.management,
-  title: "School Management Services in India — Day & Boarding School Operations",
+  title: "School Management Services in India",
   description:
-    "Professional school management services for trusts and promoters across India. We run day and boarding schools end to end — academics, leadership, HR, finance, admissions, safety and compliance — while you keep ownership and control.",
+      "We run day and boarding schools for trusts and promoters across India — academics, HR, finance, admissions, safety and compliance — while you keep control.",
   keywords: [
     "school management services",
     "school management company in India",

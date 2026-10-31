@@ -25,9 +25,9 @@ export const page: ManagementGuideData = {
   serviceName: "Day school management services",
   meta: {
     path: routes.dayManagement,
-    title: "Day School Management Services in India — Academics, Operations & Growth",
+    title: "Day School Management Services in India",
     description:
-      "Professional day school management for trusts and promoters in India: academic leadership, teacher hiring and training, fee and finance management, admissions, transport, compliance and ERP — with monthly reporting and one accountable team.",
+      "Professional day school management: academics, teacher hiring, fees and finance, admissions, transport and compliance — with monthly reporting to your trust.",
     keywords: [
       "day school management services",
       "school management company India",

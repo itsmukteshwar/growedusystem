@@ -1,5 +1,4 @@
 import { ArrowUpRight, ChevronRight, Mail, MapPin, MessageCircle, Navigation, Phone } from "lucide-react";
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ContactForm } from "@/components/sections/contact/ContactForm";
@@ -10,19 +9,22 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow, SectionTitle } from "@/components/ui/SectionHeader";
 import { routes } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
+import { pageMetadata } from "@/lib/metadata";
 import { contactIntro, departments, nextSteps, selfServe } from "@/data/contact";
 import { breadcrumbSchema, contactPageSchema, graph } from "@/lib/schema";
 
-export const metadata: Metadata = {
-  title: "Contact Us — Book a Free School Consultation",
-  description:
-    "Talk to Grow Edu System's school consultants in Bhopal. Call or WhatsApp +91 87399 90953, email growedusystem@gmail.com, or send an enquiry about starting a CBSE, ICSE, IB or Cambridge school. Reply within one working day.",
-  alternates: { canonical: routes.contact },
-  openGraph: {
-    title: `Contact ${siteConfig.name} — Book a Free School Consultation`,
-    url: routes.contact,
+export const metadata = pageMetadata(
+  {
+    path: routes.contact,
+    title: "Contact Us — Book a Free School Consultation",
+    description:
+      "Talk to Grow Edu System's school consultants in Bhopal. Call or WhatsApp +91 87399 90953 or send an enquiry. We reply within one working day.",
+    keywords: ["contact school consultants", "school consultants Bhopal", "book school consultation", "Grow Edu System contact"],
+    updated: "2026-10-31",
   },
-};
+  undefined,
+  "website",
+);
 
 export default function ContactPage() {
   const { phoneDisplay, phoneHref, whatsappHref, email } = siteConfig.contact;

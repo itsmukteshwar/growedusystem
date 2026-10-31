@@ -27,9 +27,9 @@ import type { IconItem, PageHeroData, PageMeta, RelatedLink, TableData, Timeline
 
 export const meta: PageMeta = {
   path: routes.cbse,
-  title: "How to Start a CBSE School in India (2026 Guide) — Land, Process & Documents",
+  title: "How to Start a CBSE School (2026 Guide)",
   description:
-    "Step-by-step guide to starting a CBSE school: 2026 land norms, infrastructure and staff requirements, documents, the SARAS affiliation process and timelines — with consultants who handle it end to end.",
+      "Start a CBSE school: 2026 land norms, infrastructure and staff rules, documents, the SARAS affiliation process and timelines — with expert help end to end.",
   keywords: [
     "how to start a CBSE school",
     "CBSE affiliation process",

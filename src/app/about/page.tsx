@@ -89,9 +89,9 @@ export default function AboutPage() {
             </ol>
           </nav>
           <div className="max-w-175">
-            <Eyebrow tone="light" className="mb-6">Our story</Eyebrow>
+            <Eyebrow className="mb-6 text-brand-400">Our story</Eyebrow>
             <h1 className="mb-6 text-[clamp(36px,4.6vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-white">
-              India's end-to-end school consultants
+              India’s end-to-end school consultants
             </h1>
             <p className="max-w-140 text-lg leading-[1.75] text-white/74">
               Grow Edu System was founded with a single conviction: that a school promoter with a genuine commitment to quality education should never be stopped by paperwork, process or lack of expertise. We exist to remove every barrier between a vision and a school that works.
@@ -182,13 +182,13 @@ export default function AboutPage() {
               Ready to start your school journey?
             </h2>
             <p className="mx-auto mb-8 max-w-120 text-[15px] leading-[1.75] text-white/70">
-              Book a free 30-minute consultation with our team. We'll help you understand the path ahead — with no obligation.
+              Book a free 30-minute consultation with our team. We’ll help you understand the path ahead — with no obligation.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <ButtonLink href={routes.consultation} withArrow className="bg-brand-600 hover:bg-brand-700 px-7 py-4 text-base">
                 Book a free consultation
               </ButtonLink>
-              <ButtonLink href={routes.careers} variant="ghost" className="border border-white/20 text-white hover:bg-white/10 px-7 py-4 text-base">
+              <ButtonLink href={routes.careers} variant="outline-light" className="px-7 py-4 text-base">
                 Join our team
               </ButtonLink>
             </div>

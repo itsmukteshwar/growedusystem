@@ -4,9 +4,14 @@
  */
 import { routes } from "@/config/navigation";
 import * as home from "@/data/home";
+import * as cambridge from "@/data/services/cambridge-igcse";
 import * as cbse from "@/data/services/cbse";
+import * as compareBoards from "@/data/services/compare-boards";
 import * as feasibility from "@/data/services/feasibility-dpr";
+import * as ib from "@/data/services/ib";
+import * as icse from "@/data/services/icse";
 import * as startSchool from "@/data/services/start-a-school";
+import * as stateBoard from "@/data/services/state-board";
 import type { ImageBrief } from "@/types";
 
 function isBrief(value: unknown): value is ImageBrief {
@@ -32,4 +37,9 @@ export const imageGroups = [
   { page: "Start a School", path: routes.startSchool, images: [...collect(startSchool).values()].sort(byId) },
   { page: "Feasibility & DPR", path: routes.feasibility, images: [...collect(feasibility).values()].sort(byId) },
   { page: "CBSE School Setup", path: routes.cbse, images: [...collect(cbse).values()].sort(byId) },
+  { page: "ICSE School Setup", path: routes.icse, images: [...collect(icse).values()].sort(byId) },
+  { page: "IB School Setup", path: routes.ib, images: [...collect(ib).values()].sort(byId) },
+  { page: "Cambridge IGCSE Setup", path: routes.igcse, images: [...collect(cambridge).values()].sort(byId) },
+  { page: "State Board Setup", path: routes.stateBoard, images: [...collect(stateBoard).values()].sort(byId) },
+  { page: "Compare Boards", path: routes.compareBoards, images: [...collect(compareBoards).values()].sort(byId) },
 ];

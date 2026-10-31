@@ -53,7 +53,7 @@ export function AnnouncementBar() {
             {announcement.badge}
           </span>
           <span className="hidden xl:inline">{announcement.text}</span>
-          <span className="xl:hidden">Free school budget calculator</span>
+          <span className="xl:hidden">Free 30-minute consultation</span>
           <Link href={announcement.cta.href} className="group font-semibold text-brand-400">
             {announcement.cta.label} <Arrow />
           </Link>

@@ -14,6 +14,13 @@ const livePages: { path: string; priority: number; changeFrequency: "weekly" | "
   { path: routes.startSchool, priority: 0.9, changeFrequency: "monthly" },
   { path: routes.feasibility, priority: 0.9, changeFrequency: "monthly" },
   { path: routes.cbse, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.icse, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.ib, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.igcse, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.stateBoard, priority: 0.9, changeFrequency: "monthly" },
+  { path: routes.compareBoards, priority: 0.8, changeFrequency: "monthly" },
+  { path: routes.about, priority: 0.7, changeFrequency: "yearly" },
+  { path: routes.careers, priority: 0.6, changeFrequency: "monthly" },
   { path: routes.contact, priority: 0.8, changeFrequency: "monthly" },
 ];
 

@@ -109,12 +109,12 @@ export default function CareersPage() {
             </ol>
           </nav>
           <div className="max-w-175">
-            <Eyebrow tone="light" className="mb-6">Join us</Eyebrow>
+            <Eyebrow className="mb-6 text-brand-400">Join us</Eyebrow>
             <h1 className="mb-6 text-[clamp(36px,4.6vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-white">
               Build the schools that build India
             </h1>
             <p className="max-w-140 text-lg leading-[1.75] text-white/74">
-              At Grow Edu System, every engagement ends with a school that wasn't there before. If you want work that matters — and a team that moves fast and takes ownership — you're in the right place.
+              At Grow Edu System, every engagement ends with a school that wasn’t there before. If you want work that matters — and a team that moves fast and takes ownership — you’re in the right place.
             </p>
           </div>
         </Container>
@@ -186,7 +186,7 @@ export default function CareersPage() {
 
               {/* Responsibilities */}
               <div>
-                <h3 className="mb-3 text-[17px] font-extrabold text-ink">What you'll do</h3>
+                <h3 className="mb-3 text-[17px] font-extrabold text-ink">What you’ll do</h3>
                 <ul className="space-y-2.5">
                   {vacancy.responsibilities.map((r) => (
                     <li key={r} className="flex gap-3 text-[15px] leading-[1.65] text-body">
@@ -199,7 +199,7 @@ export default function CareersPage() {
 
               {/* Requirements */}
               <div>
-                <h3 className="mb-3 text-[17px] font-extrabold text-ink">What we're looking for</h3>
+                <h3 className="mb-3 text-[17px] font-extrabold text-ink">What we’re looking for</h3>
                 <ul className="space-y-2.5">
                   {vacancy.requirements.map((r) => (
                     <li key={r} className="flex gap-3 text-[15px] leading-[1.65] text-body">
@@ -227,7 +227,7 @@ export default function CareersPage() {
               <div className="rounded-2xl border border-line bg-canvas p-6">
                 <h3 className="mb-1.5 text-[17px] font-extrabold text-ink">How to apply</h3>
                 <p className="mb-4 text-[15px] leading-[1.7] text-body">
-                  Send your resume and a brief note about why you're the right fit to{" "}
+                  Send your resume and a brief note about why you’re the right fit to{" "}
                   <a href={`mailto:${APPLY_EMAIL}`} className="font-medium text-brand-600 hover:underline">
                     {APPLY_EMAIL}
                   </a>{" "}
@@ -249,9 +249,9 @@ export default function CareersPage() {
       <section className="border-t border-line bg-white px-6 py-16">
         <Container>
           <div className="mx-auto max-w-155 text-center">
-            <p className="mb-2 text-[17px] font-bold text-ink">Don't see the right role?</p>
+            <p className="mb-2 text-[17px] font-bold text-ink">Don’t see the right role?</p>
             <p className="mb-6 text-[15px] leading-[1.7] text-body">
-              We're always interested in meeting talented people who care about education. Send us a speculative application and tell us how you'd contribute.
+              We’re always interested in meeting talented people who care about education. Send us a speculative application and tell us how you’d contribute.
             </p>
             <a
               href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent("Speculative Application — Grow Edu System")}`}

@@ -74,10 +74,10 @@ export const journey: TimelineStep[] = [
 
 export const boardCards = [
   { name: "CBSE", description: "Land norms, SARAS application, inspection and affiliation.", href: routes.cbse, live: true },
-  { name: "ICSE / CISCE", description: "CISCE affiliation requirements and setup.", href: routes.icse, live: false },
-  { name: "IB", description: "Candidate status through full authorisation.", href: routes.ib, live: false },
-  { name: "Cambridge (IGCSE)", description: "Cambridge International registration.", href: routes.igcse, live: false },
-  { name: "State Board", description: "Recognition support across Indian states.", href: routes.stateBoard, live: false },
+  { name: "ICSE / CISCE", description: "CISCE affiliation requirements and setup.", href: routes.icse, live: true },
+  { name: "IB", description: "Candidate status through full authorisation.", href: routes.ib, live: true },
+  { name: "Cambridge (IGCSE)", description: "Cambridge International registration.", href: routes.igcse, live: true },
+  { name: "State Board", description: "Recognition support across Indian states.", href: routes.stateBoard, live: true },
 ];
 
 export const faqs: Faq[] = [

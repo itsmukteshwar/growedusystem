@@ -7,7 +7,6 @@ import type { NavGroup, NavLink } from "@/types";
 export const routes = {
   home: "/",
   consultation: "/contact",
-  budgetCalculator: "/resources/budget-calculator",
 
   startSchool: "/start-a-school",
   feasibility: "/start-a-school/feasibility-dpr",
@@ -95,7 +94,6 @@ export const mainNav: NavGroup[] = [
     href: routes.resources,
     children: [
       { label: "Knowledge Hub", href: routes.blog },
-      { label: "Budget Calculator", href: routes.budgetCalculator },
       { label: "Case Studies", href: routes.caseStudies },
       { label: "FAQ", href: routes.faq },
     ],
@@ -135,7 +133,6 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     title: "Resources",
     links: [
       { label: "Knowledge Hub", href: routes.blog },
-      { label: "Budget Calculator", href: routes.budgetCalculator },
       { label: "Case Studies", href: routes.caseStudies },
       { label: "FAQ", href: routes.faq },
     ],

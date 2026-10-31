@@ -73,7 +73,6 @@ export const departments = [
 ];
 
 export const selfServe = [
-  { label: "Estimate your setup cost", href: routes.budgetCalculator },
   { label: "Read the knowledge hub", href: routes.blog },
   { label: "Browse common questions", href: routes.faq },
 ];

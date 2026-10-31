@@ -28,8 +28,8 @@ import type {
 
 export const announcement = {
   badge: "NEW",
-  text: "Estimate your school's setup cost in 2 minutes with our free budget calculator.",
-  cta: { label: "Try it", href: routes.budgetCalculator },
+  text: "Book a free 30-minute consultation with our school setup experts.",
+  cta: { label: "Book now", href: routes.consultation },
 };
 
 export const heroSlides = {
@@ -744,7 +744,7 @@ export const faqs: Faq[] = [
   {
     question: "How much does it cost to set up a school?",
     answer:
-      "It varies widely with land, city, board and capacity. Our free budget calculator gives a first estimate, and the DPR gives you a detailed, investor-ready figure.",
+      "It varies widely with land, city, board and capacity. A free 30-minute consultation with our team gives you a ballpark, and our Feasibility & DPR service produces a detailed, investor-ready figure.",
   },
   {
     question: "Can you help an existing school grow admissions?",

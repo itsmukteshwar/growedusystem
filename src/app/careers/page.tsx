@@ -96,25 +96,25 @@ export default function CareersPage() {
       />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 bg-dots px-6 pt-10 pb-24">
+      <section className="relative overflow-hidden border-b border-brand-200/70 bg-hero-soft px-6 pt-10 pb-24">
         <div
           aria-hidden="true"
-          className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(58_176_75/0.22)_0%,transparent_65%)]"
+          className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(91_201_106/0.28)_0%,transparent_65%)]"
         />
         <Container className="relative">
           <nav aria-label="Breadcrumb" className="mb-10">
-            <ol className="flex items-center gap-1.5 text-[13px] text-white/60">
-              <li><Link href={routes.home} className="hover:text-white">Home</Link></li>
+            <ol className="flex items-center gap-1.5 text-[13px] text-muted">
+              <li><Link href={routes.home} className="hover:text-brand-700">Home</Link></li>
               <li aria-hidden="true"><ChevronRight className="size-3.5" /></li>
-              <li aria-current="page" className="text-white/88">Careers</li>
+              <li aria-current="page" className="text-navy-800">Careers</li>
             </ol>
           </nav>
           <div className="max-w-175">
-            <Eyebrow className="mb-6 text-brand-400">Join us</Eyebrow>
-            <h1 className="mb-6 text-[clamp(36px,4.6vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-white">
+            <Eyebrow className="mb-6 text-brand-700">Join us</Eyebrow>
+            <h1 className="mb-6 text-[clamp(36px,4.6vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-ink">
               Build the schools that build India
             </h1>
-            <p className="max-w-140 text-lg leading-[1.75] text-white/74">
+            <p className="max-w-140 text-lg leading-[1.75] text-body">
               At Grow Edu System, every engagement ends with a school that wasn’t there before. If you want work that matters — and a team that moves fast and takes ownership — you’re in the right place.
             </p>
           </div>

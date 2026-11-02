@@ -18,14 +18,14 @@ export function Process() {
           {processSteps.map((step, i) => (
             <Reveal key={step.number} delay={i * 90} as="li" className={cn(
               "lift overflow-hidden rounded-[20px] border",
-              step.highlight ? "border-navy-800 bg-navy-800 text-white" : "border-line bg-canvas",
+              step.highlight ? "border-brand-500 bg-mint-100 text-ink shadow-[0_18px_40px_-24px_rgb(37_135_53/0.45)]" : "border-line bg-canvas",
             )}>
               <ImageSlot image={step.image} compact sizes="(min-width: 1024px) 25vw, 100vw" className="flex aspect-16/10 items-end p-3" />
               <div className="p-6">
                 <div className="mb-3.5 flex items-center justify-between">
                   <span
                     aria-hidden="true"
-                    className={cn("font-display text-[28px] font-extrabold", step.highlight ? "text-white/30" : "text-navy-200")}
+                    className={cn("font-display text-[28px] font-extrabold", step.highlight ? "text-brand-500/45" : "text-navy-200")}
                   >
                     {step.number}
                   </span>
@@ -39,7 +39,7 @@ export function Process() {
                   </span>
                 </div>
                 <h3 className={cn("mb-2 text-[19px] font-extrabold", !step.highlight && "text-ink")}>{step.title}</h3>
-                <p className={cn("text-[15px] leading-[1.65]", step.highlight ? "text-white/78" : "text-body")}>
+                <p className={cn("text-[15px] leading-[1.65]", "text-body")}>
                   {step.description}
                 </p>
                 {step.href && (
@@ -47,7 +47,7 @@ export function Process() {
                     href={step.href}
                     className={cn(
                       "group mt-4 inline-flex items-center gap-1.5 font-display text-sm font-bold",
-                      step.highlight ? "text-brand-400" : "text-navy-800",
+                      step.highlight ? "text-brand-700" : "text-navy-800",
                     )}
                   >
                     Learn more<span className="sr-only">: {step.title}</span> <Arrow />

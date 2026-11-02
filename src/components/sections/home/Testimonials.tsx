@@ -23,7 +23,7 @@ export function Testimonials() {
 
 function VideoTestimonial({ t }: { t: Testimonial }) {
   return (
-    <figure className="flex flex-col overflow-hidden rounded-3xl bg-navy-950 text-white">
+    <figure className="flex flex-col overflow-hidden rounded-3xl border border-brand-200 bg-mint-100 text-ink">
       <ImageSlot image={t.image} sizes="(min-width: 1024px) 33vw, 100vw" className="flex aspect-16/10 items-end justify-between gap-3 p-3.5">
         <span aria-hidden="true" className="relative ml-auto inline-flex size-13 shrink-0 items-center justify-center rounded-full bg-brand-600">
           <Play className="size-5 fill-white text-white" />
@@ -33,7 +33,7 @@ function VideoTestimonial({ t }: { t: Testimonial }) {
         <blockquote className="font-display text-[19px] leading-normal font-semibold">&ldquo;{t.quote}&rdquo;</blockquote>
         <figcaption className="mt-auto">
           <span className="block font-bold">{t.name}</span>
-          <span className="block text-[13px] text-white/70">{t.role}</span>
+          <span className="block text-[13px] text-muted">{t.role}</span>
         </figcaption>
       </div>
     </figure>

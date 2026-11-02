@@ -31,12 +31,12 @@ export function Projects() {
                 >
                   <div
                     className={cn(
-                      "relative mt-auto rounded-xl bg-navy-950 text-white",
+                      "relative mt-auto rounded-xl bg-white/92 text-ink shadow-[0_8px_20px_-12px_rgb(18_48_31/0.35)] backdrop-blur-sm",
                       project.featured ? "px-3.5 py-3" : "self-start px-3 py-2.5",
                     )}
                   >
                     <h3 className={cn("font-display font-extrabold", !project.featured && "text-sm")}>{project.name}</h3>
-                    <p className={cn("text-white/72", project.featured ? "text-[13px]" : "text-xs")}>{project.meta}</p>
+                    <p className={cn("text-muted", project.featured ? "text-[13px]" : "text-xs")}>{project.meta}</p>
                   </div>
                 </ImageSlot>
               </Link>

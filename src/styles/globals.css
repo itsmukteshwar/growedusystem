@@ -11,17 +11,24 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
 
-  /* Navy (primary brand) */
-  --color-navy-950: #0d1f3c;
-  --color-navy-900: #0d1b30;
-  --color-navy-800: #1a3660;
-  --color-navy-500: #4d77b8;
-  --color-navy-300: #9fb8dd;
-  --color-navy-200: #c5d6ef;
-  --color-navy-100: #dde5f0;
-  --color-navy-75: #e4ebf6;
-  --color-navy-50: #ebf0f9;
-  --color-navy-25: #f0f4fb;
+  /* Forest (primary dark tone). Token names kept as "navy" so existing classes keep working;
+     the client asked for no blue anywhere, so the whole scale is now a green-slate. */
+  --color-navy-950: #12301f;
+  --color-navy-900: #10261a;
+  --color-navy-800: #1f4a30;
+  --color-navy-500: #4f8a63;
+  --color-navy-300: #9cc7a8;
+  --color-navy-200: #c3e0cb;
+  --color-navy-100: #d9ecdf;
+  --color-navy-75: #e2f1e6;
+  --color-navy-50: #e9f5ec;
+  --color-navy-25: #f1f9f3;
+
+  /* Light green surfaces (hero, footer, top bar, CTA panels) */
+  --color-mint-50: #f3faf4;
+  --color-mint-100: #eaf6ec;
+  --color-mint-200: #dcf0e1;
+  --color-mint-300: #c9e7d1;
 
   /* Green (accent / call to action) */
   --color-brand-700: #1a6b27;
@@ -32,12 +39,12 @@
   --color-brand-50: #e8f8eb;
 
   /* Neutrals & text */
-  --color-ink: #0d1b30;
-  --color-body: #3a4d68;
-  --color-muted: #5a6d88;
-  --color-line: #dde5f0;
-  --color-divider: #eef2f8;
-  --color-canvas: #f7f9fc;
+  --color-ink: #10261a;
+  --color-body: #3b5246;
+  --color-muted: #5b7064;
+  --color-line: #d9e8de;
+  --color-divider: #eaf3ed;
+  --color-canvas: #f6faf7;
 
   /* Status */
   --color-warn-500: #f59e0b;
@@ -123,7 +130,7 @@
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 18px 40px -18px rgb(13 31 60 / 0.28);
+    box-shadow: 0 18px 40px -18px rgb(18 48 31 / 0.25);
     border-color: var(--color-navy-200);
   }
 }
@@ -133,18 +140,25 @@
   background-color: var(--color-navy-75);
   background-image: repeating-linear-gradient(
     135deg,
-    rgb(26 54 96 / 0.055) 0 14px,
+    rgb(31 74 48 / 0.06) 0 14px,
     transparent 14px 28px
   );
 }
 
-/* Soft light hero base: mint → sky tint with a faint navy dot grid (not white) */
+/* Plain light-green hero base (single tone, a touch deeper than the CTA cards) with a faint green dot grid */
 @utility bg-hero-soft {
-  background-color: #edf3f9;
+  background-color: var(--color-mint-200);
   background-image:
-    radial-gradient(rgb(26 54 96 / 0.075) 1px, transparent 1px),
-    linear-gradient(160deg, #e9f6ed 0%, #eef4fa 48%, #e2ebf8 100%);
-  background-size: 28px 28px, 100% 100%;
+    radial-gradient(rgb(37 135 53 / 0.11) 1px, transparent 1px),
+    linear-gradient(180deg, var(--color-mint-200) 0%, var(--color-mint-100) 100%);
+  background-size: 26px 26px, 100% 100%;
+}
+
+/* Light green panel with faint green dots — replaces the old dark navy blocks */
+@utility bg-mint-panel {
+  background-color: var(--color-mint-100);
+  background-image: radial-gradient(rgb(37 135 53 / 0.09) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Dotted texture used on dark sections */

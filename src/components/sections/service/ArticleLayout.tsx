@@ -31,13 +31,13 @@ export function ArticleLayout({ toc, children }: { toc: TocItem[]; children: Rea
               <TableOfContents items={toc} />
             </nav>
 
-            <div className="hidden rounded-[20px] bg-navy-950 p-5.5 text-white lg:block">
+            <div className="hidden rounded-[20px] border border-brand-200 bg-mint-panel p-5.5 text-ink lg:block">
               <p className="mb-1.5 font-display text-base font-extrabold">Talk to a consultant</p>
-              <p className="mb-4 text-sm leading-relaxed text-white/72">Free 30-minute call on cost, timeline and approvals for your city.</p>
+              <p className="mb-4 text-sm leading-relaxed text-body">Free 30-minute call on cost, timeline and approvals for your city.</p>
               <ButtonLink href={routes.consultation} size="sm" withArrow className="w-full">
                 Book free call
               </ButtonLink>
-              <a href={phoneHref} className="mt-3 flex items-center justify-center gap-2 text-sm text-white/80 hover:text-white">
+              <a href={phoneHref} className="mt-3 flex items-center justify-center gap-2 text-sm text-body hover:text-brand-700">
                 <Phone aria-hidden="true" className="size-3.5" />
                 {phoneDisplay}
               </a>

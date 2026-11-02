@@ -34,11 +34,11 @@ export function Platforms() {
           </ul>
         </div>
 
-        <div className="min-w-0 flex-[1_1_560px] overflow-hidden rounded-[28px] bg-navy-950 px-7 pt-7">
+        <div className="min-w-0 flex-[1_1_560px] overflow-hidden rounded-[28px] border border-brand-200 bg-mint-panel px-7 pt-7">
           <div aria-hidden="true" className="mb-3.5 flex gap-1.5">
-            <span className="size-2.5 rounded-full bg-white/25" />
-            <span className="size-2.5 rounded-full bg-white/25" />
-            <span className="size-2.5 rounded-full bg-white/25" />
+            <span className="size-2.5 rounded-full bg-brand-200" />
+            <span className="size-2.5 rounded-full bg-brand-200" />
+            <span className="size-2.5 rounded-full bg-brand-200" />
           </div>
           <ImageSlot
             image={platformsIntro.screenshot}

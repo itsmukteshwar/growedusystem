@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 const variants = {
   primary:
     "bg-brand-600 text-white hover:bg-brand-700 hover:-translate-y-px hover:shadow-[0_10px_24px_-10px_rgb(37_135_53/0.7)]",
-  "outline-light": "border-[1.5px] border-white/30 text-white hover:border-white/60 hover:bg-white/8",
-  navy: "bg-navy-800 text-white hover:bg-navy-950",
+  "outline-light": "border-[1.5px] border-brand-600/40 bg-white/70 text-navy-800 hover:border-brand-600 hover:bg-white",
+  navy: "bg-brand-700 text-white hover:bg-navy-800",
   outline:
-    "border-[1.5px] border-navy-200 bg-white/70 text-navy-800 backdrop-blur-sm hover:border-navy-500 hover:bg-white",
+    "border-[1.5px] border-brand-600/40 bg-white/70 text-navy-800 backdrop-blur-sm hover:border-brand-600 hover:bg-white",
 } as const;
 
 const sizes = {

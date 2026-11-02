@@ -86,10 +86,10 @@ function renderEmail(e: Parameters<typeof rows>[0]) {
   const body = rows(e)
     .map(
       ([k, v]) =>
-        `<tr><td style="padding:8px 12px;color:#5a6d88;white-space:nowrap;vertical-align:top">${k}</td><td style="padding:8px 12px;color:#0d1b30">${escape(v).replace(/\n/g, "<br>")}</td></tr>`,
+        `<tr><td style="padding:8px 12px;color:#5b7064;white-space:nowrap;vertical-align:top">${k}</td><td style="padding:8px 12px;color:#10261a">${escape(v).replace(/\n/g, "<br>")}</td></tr>`,
     )
     .join("");
-  return `<div style="font-family:system-ui,sans-serif"><h2 style="color:#1a3660">New website enquiry</h2><table style="border-collapse:collapse;border:1px solid #dde5f0">${body}</table></div>`;
+  return `<div style="font-family:system-ui,sans-serif"><h2 style="color:#1f4a30">New website enquiry</h2><table style="border-collapse:collapse;border:1px solid #d9e8de">${body}</table></div>`;
 }
 
 function renderText(e: Parameters<typeof rows>[0]) {

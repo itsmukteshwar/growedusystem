@@ -63,21 +63,21 @@ export function Hero() {
   ];
 
   return (
-    <section aria-label="Grow Edu System services" className="relative overflow-hidden border-b border-navy-100 bg-hero-soft">
+    <section aria-label="Grow Edu System services" className="relative overflow-hidden border-b border-brand-200/70 bg-hero-soft">
       <div
         aria-hidden="true"
         className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(91_201_106/0.22)_0%,transparent_65%)]"
       />
       <div
         aria-hidden="true"
-        className="absolute -bottom-95 -left-65 size-180 rounded-full bg-[radial-gradient(circle,rgb(159_184_221/0.40)_0%,transparent_65%)]"
+        className="absolute -bottom-95 -left-65 size-180 rounded-full bg-[radial-gradient(circle,rgb(168_232_176/0.45)_0%,transparent_65%)]"
       />
 
       <Container className="relative z-2 px-6 pt-18 pb-10">
         <HeroCarousel slides={slides} labels={[start.tab, manage.tab, grow.tab]} />
       </Container>
 
-      <div className="relative z-2 border-t border-navy-100 bg-white/45 backdrop-blur-sm">
+      <div className="relative z-2 border-t border-brand-200/70 bg-white/45 backdrop-blur-sm">
         <Container className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4.5 px-6 pt-6.5 pb-16">
           <p className="text-[13px] text-muted">Affiliation expertise across every major board</p>
           <ul className="flex flex-wrap items-center gap-x-9 gap-y-2.5">

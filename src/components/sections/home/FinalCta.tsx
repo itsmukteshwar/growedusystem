@@ -16,20 +16,20 @@ export interface CtaData {
 export function FinalCta({ data = finalCta }: { data?: CtaData }) {
   return (
     <section className="bg-canvas px-6 pb-20 md:pb-26">
-      <Container className="relative flex flex-wrap items-stretch overflow-hidden rounded-[32px] bg-navy-800 bg-[radial-gradient(rgb(255_255_255/0.08)_1px,transparent_1px)] bg-size-[24px_24px]">
+      <Container className="relative flex flex-wrap items-stretch overflow-hidden rounded-[32px] border border-brand-200 bg-mint-panel">
         <div
           aria-hidden="true"
-          className="absolute -top-40 -left-30 size-105 rounded-full bg-[radial-gradient(circle,rgb(58_176_75/0.32),transparent_65%)]"
+          className="absolute -top-40 -left-30 size-105 rounded-full bg-[radial-gradient(circle,rgb(91_201_106/0.30),transparent_65%)]"
         />
         <div className="relative min-w-0 flex-[1_1_520px] px-8 py-14 md:px-12 md:py-16">
-          <h2 className="mb-4 text-[clamp(30px,4vw,48px)] leading-[1.08] font-extrabold tracking-[-1.2px] text-white">
+          <h2 className="mb-4 text-[clamp(30px,4vw,48px)] leading-[1.08] font-extrabold tracking-[-1.2px] text-ink">
             {data.title}
           </h2>
-          <p className="mb-8 max-w-130 text-[17px] leading-[1.7] text-white/74">{data.description}</p>
+          <p className="mb-8 max-w-130 text-[17px] leading-[1.7] text-body">{data.description}</p>
           <ButtonLink href={data.cta.href} size="xl" withArrow>
             {data.cta.label}
           </ButtonLink>
-          <p className="mt-3.5 text-[13px] text-white/62">{data.reassurance}</p>
+          <p className="mt-3.5 text-[13px] text-muted">{data.reassurance}</p>
         </div>
         <ImageSlot
           image={data.image}

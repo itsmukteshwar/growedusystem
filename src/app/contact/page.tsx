@@ -73,33 +73,33 @@ export default function ContactPage() {
       />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 bg-dots px-6 pt-10 pb-36">
+      <section className="relative overflow-hidden border-b border-brand-200/70 bg-hero-soft px-6 pt-10 pb-36">
         <div
           aria-hidden="true"
-          className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(58_176_75/0.22)_0%,transparent_65%)]"
+          className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(91_201_106/0.28)_0%,transparent_65%)]"
         />
         <Container className="relative">
           <nav aria-label="Breadcrumb" className="mb-10">
-            <ol className="flex items-center gap-1.5 text-[13px] text-white/60">
+            <ol className="flex items-center gap-1.5 text-[13px] text-muted">
               <li>
-                <Link href={routes.home} className="hover:text-white">
+                <Link href={routes.home} className="hover:text-brand-700">
                   Home
                 </Link>
               </li>
               <li aria-hidden="true">
                 <ChevronRight className="size-3.5" />
               </li>
-              <li aria-current="page" className="text-white/88">
+              <li aria-current="page" className="text-navy-800">
                 Contact
               </li>
             </ol>
           </nav>
           <div className="max-w-170">
-            <OfficeStatusBadge tone="dark" className="mb-6" />
-            <h1 className="mb-5 text-[clamp(36px,4.6vw,56px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-white">
+            <OfficeStatusBadge className="mb-6" />
+            <h1 className="mb-5 text-[clamp(36px,4.6vw,56px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-ink">
               {contactIntro.title}
             </h1>
-            <p className="text-lg leading-[1.7] text-white/74">{contactIntro.description}</p>
+            <p className="text-lg leading-[1.7] text-body">{contactIntro.description}</p>
           </div>
         </Container>
       </section>

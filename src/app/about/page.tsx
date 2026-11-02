@@ -76,25 +76,25 @@ export default function AboutPage() {
       />
 
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy-950 bg-dots px-6 pt-10 pb-24">
+      <section className="relative overflow-hidden border-b border-brand-200/70 bg-hero-soft px-6 pt-10 pb-24">
         <div
           aria-hidden="true"
-          className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(58_176_75/0.22)_0%,transparent_65%)]"
+          className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(91_201_106/0.28)_0%,transparent_65%)]"
         />
         <Container className="relative">
           <nav aria-label="Breadcrumb" className="mb-10">
-            <ol className="flex items-center gap-1.5 text-[13px] text-white/60">
-              <li><Link href={routes.home} className="hover:text-white">Home</Link></li>
+            <ol className="flex items-center gap-1.5 text-[13px] text-muted">
+              <li><Link href={routes.home} className="hover:text-brand-700">Home</Link></li>
               <li aria-hidden="true"><ChevronRight className="size-3.5" /></li>
-              <li aria-current="page" className="text-white/88">About</li>
+              <li aria-current="page" className="text-navy-800">About</li>
             </ol>
           </nav>
           <div className="max-w-175">
-            <Eyebrow className="mb-6 text-brand-400">Our story</Eyebrow>
-            <h1 className="mb-6 text-[clamp(36px,4.6vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-white">
+            <Eyebrow className="mb-6 text-brand-700">Our story</Eyebrow>
+            <h1 className="mb-6 text-[clamp(36px,4.6vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-ink">
               India’s end-to-end school consultants
             </h1>
-            <p className="max-w-140 text-lg leading-[1.75] text-white/74">
+            <p className="max-w-140 text-lg leading-[1.75] text-body">
               Grow Edu System was founded with a single conviction: that a school promoter with a genuine commitment to quality education should never be stopped by paperwork, process or lack of expertise. We exist to remove every barrier between a vision and a school that works.
             </p>
           </div>
@@ -178,18 +178,18 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="px-6 py-20">
         <Container>
-          <div className="rounded-3xl bg-navy-950 bg-dots px-8 py-14 text-center">
-            <h2 className="mb-4 text-[clamp(26px,3.5vw,42px)] font-extrabold tracking-[-1px] text-white">
+          <div className="rounded-3xl border border-brand-200 bg-mint-panel px-8 py-14 text-center">
+            <h2 className="mb-4 text-[clamp(26px,3.5vw,42px)] font-extrabold tracking-[-1px] text-ink">
               Ready to start your school journey?
             </h2>
-            <p className="mx-auto mb-8 max-w-120 text-[15px] leading-[1.75] text-white/70">
+            <p className="mx-auto mb-8 max-w-120 text-[15px] leading-[1.75] text-body">
               Book a free 30-minute consultation with our team. We’ll help you understand the path ahead — with no obligation.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <ButtonLink href={routes.consultation} withArrow className="bg-brand-600 hover:bg-brand-700 px-7 py-4 text-base">
                 Book a free consultation
               </ButtonLink>
-              <ButtonLink href={routes.careers} variant="outline-light" className="px-7 py-4 text-base">
+              <ButtonLink href={routes.careers} variant="outline" className="px-7 py-4 text-base">
                 Join our team
               </ButtonLink>
             </div>

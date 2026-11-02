@@ -138,6 +138,15 @@
   );
 }
 
+/* Soft light hero base: mint → sky tint with a faint navy dot grid (not white) */
+@utility bg-hero-soft {
+  background-color: #edf3f9;
+  background-image:
+    radial-gradient(rgb(26 54 96 / 0.075) 1px, transparent 1px),
+    linear-gradient(160deg, #e9f6ed 0%, #eef4fa 48%, #e2ebf8 100%);
+  background-size: 28px 28px, 100% 100%;
+}
+
 /* Dotted texture used on dark sections */
 @utility bg-dots {
   background-image: radial-gradient(rgb(255 255 255 / 0.07) 1px, transparent 1px);

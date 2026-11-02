@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Check, ExternalLink, ShieldCheck, X } from "lucide-react";
+import { ArrowRight, Check, ChevronDown, ExternalLink, ShieldCheck, X } from "lucide-react";
 import { type FormEvent, type ReactNode, useCallback, useEffect, useId, useRef, useState, useSyncExternalStore } from "react";
 
 import { siteConfig } from "@/config/site";
@@ -18,18 +18,11 @@ import { cn } from "@/lib/utils";
 
 const WHATSAPP_NUMBER = siteConfig.contact.phoneE164.replace(/\D/g, "");
 
-const SERVICES = [
-  "Start a new school",
-  "Feasibility study & DPR",
-  "CBSE / ICSE / IB / Cambridge affiliation",
-  "State Board recognition",
-  "Day school management",
-  "Boarding school management",
-  "School audit",
-  "Admissions growth",
-  "Teacher training",
-  "School ERP & platforms",
-  "Something else",
+const SERVICE_GROUPS = [
+  { group: "Start a school", items: ["Start a new school", "Feasibility study & DPR", "CBSE / ICSE / IB / Cambridge affiliation", "State Board recognition"] },
+  { group: "School management", items: ["Day school management", "Boarding school management"] },
+  { group: "School improvement", items: ["School audit", "Admissions growth", "Teacher training"] },
+  { group: "Other", items: ["School ERP & platforms", "Something else"] },
 ] as const;
 
 const STORAGE_KEY = "ges-wa-details";
@@ -346,38 +339,13 @@ export function WhatsAppWidget() {
                 />
               </WaField>
 
-              <fieldset aria-describedby={errors.services ? `${uid}-services-error` : undefined}>
-                <legend className="mb-2 text-[13px] font-semibold text-ink">
-                  What can we help with? <span className="font-normal text-muted">(choose one or more)</span>
-                </legend>
-                <div className="flex flex-wrap gap-1.5">
-                  {SERVICES.map((s) => {
-                    const on = services.includes(s);
-                    return (
-                      <button
-                        key={s}
-                        type="button"
-                        aria-pressed={on}
-                        onClick={() => toggleService(s)}
-                        className={cn(
-                          "inline-flex items-center gap-1 rounded-full border px-3 py-1.5 text-[12.5px] font-semibold transition-[background-color,border-color,color,transform] duration-150 active:scale-95",
-                          on
-                            ? "border-[#128c7e] bg-[#128c7e] text-white"
-                            : "border-line bg-white text-body hover:border-[#128c7e]/50 hover:text-ink",
-                        )}
-                      >
-                        {on && <Check aria-hidden="true" className="size-3.5" strokeWidth={3} />}
-                        {s}
-                      </button>
-                    );
-                  })}
-                </div>
-                {errors.services && (
-                  <p id={`${uid}-services-error`} className="mt-1.5 text-[12.5px] text-red-600">
-                    {errors.services}
-                  </p>
-                )}
-              </fieldset>
+              <ServicePicker
+                id={`${uid}-services`}
+                selected={services}
+                onToggle={toggleService}
+                onClear={() => setServices([])}
+                error={errors.services}
+              />
 
               <WaField id={`${uid}-message`} label="Anything else?" optional>
                 <textarea
@@ -512,6 +480,158 @@ function WaField({ id, label, error, optional, children }: { id: string; label: 
         {optional ? <span className="ml-1 font-normal text-muted">(optional)</span> : <span aria-hidden="true" className="ml-0.5 text-red-600">*</span>}
       </label>
       {children}
+      {error && (
+        <p id={`${id}-error`} className="text-[12.5px] text-red-600">
+          {error}
+        </p>
+      )}
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------------------------------------------- */
+/* Service picker — compact multi-select dropdown, grouped by service area                        */
+/* ---------------------------------------------------------------------------------------------- */
+
+function ServicePicker({
+  id,
+  selected,
+  onToggle,
+  onClear,
+  error,
+}: {
+  id: string;
+  selected: string[];
+  onToggle: (s: string) => void;
+  onClear: () => void;
+  error?: string;
+}) {
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  // Close on outside click; Esc closes the list (not the whole widget).
+  useEffect(() => {
+    if (!open) return;
+    const onPointer = (e: PointerEvent) => {
+      if (!wrapRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        setOpen(false);
+        triggerRef.current?.focus();
+      }
+    };
+    document.addEventListener("pointerdown", onPointer);
+    wrapRef.current?.addEventListener("keydown", onKey);
+    const node = wrapRef.current;
+    return () => {
+      document.removeEventListener("pointerdown", onPointer);
+      node?.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const shown = selected.slice(0, 2);
+  const more = selected.length - shown.length;
+
+  return (
+    <div ref={wrapRef} className="flex flex-col gap-1">
+      <span id={`${id}-label`} className="text-[13px] font-semibold text-ink">
+        What can we help with?<span aria-hidden="true" className="ml-0.5 text-red-600">*</span>
+      </span>
+
+      <button
+        ref={triggerRef}
+        type="button"
+        id={id}
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-controls={`${id}-list`}
+        aria-labelledby={`${id}-label ${id}`}
+        aria-describedby={error ? `${id}-error` : undefined}
+        onClick={() => setOpen((o) => !o)}
+        className={cn(
+          "flex min-h-11 w-full items-center gap-2 rounded-xl border bg-white py-2 pr-3 pl-3.5 text-left text-[14px] transition-[border-color,box-shadow] outline-none",
+          "hover:border-navy-200 focus-visible:border-[#128c7e] focus-visible:ring-4 focus-visible:ring-[#128c7e]/12",
+          open ? "border-[#128c7e] ring-4 ring-[#128c7e]/12" : "border-line",
+          error && !open && "border-red-500",
+        )}
+      >
+        <span className="flex min-w-0 flex-1 flex-wrap items-center gap-1">
+          {selected.length === 0 ? (
+            <span className="text-muted/70">Select services</span>
+          ) : (
+            <>
+              {shown.map((s) => (
+                <span key={s} className="max-w-full truncate rounded-full bg-[#128c7e]/10 px-2.5 py-0.5 text-[12.5px] font-semibold text-[#0b6b60]">
+                  {s}
+                </span>
+              ))}
+              {more > 0 && <span className="rounded-full bg-navy-50 px-2 py-0.5 text-[12.5px] font-semibold text-navy-800">+{more}</span>}
+            </>
+          )}
+        </span>
+        <ChevronDown aria-hidden="true" className={cn("size-4 shrink-0 text-muted transition-transform duration-200", open && "rotate-180")} />
+      </button>
+
+      {/* Inline list (expands inside the panel so it never gets clipped) */}
+      <div className={cn("grid transition-[grid-template-rows,opacity] duration-250 ease-out", open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0")}>
+        <div className="overflow-hidden" inert={!open}>
+          <div id={`${id}-list`} role="group" aria-labelledby={`${id}-label`} className="mt-1 rounded-xl border border-line bg-white p-1.5 shadow-[0_10px_30px_-14px_rgb(13_31_60/0.35)]">
+            {SERVICE_GROUPS.map((g) => (
+              <div key={g.group} className="py-0.5">
+                <p className="px-2.5 pt-1.5 pb-1 text-[10.5px] font-bold tracking-[0.08em] text-muted uppercase">{g.group}</p>
+                {g.items.map((item) => {
+                  const on = selected.includes(item);
+                  return (
+                    <label
+                      key={item}
+                      className={cn(
+                        "flex cursor-pointer items-center gap-2.5 rounded-lg px-2.5 py-2 text-[13.5px] transition-colors",
+                        on ? "bg-[#128c7e]/8 font-semibold text-ink" : "text-body hover:bg-canvas",
+                      )}
+                    >
+                      <input type="checkbox" checked={on} onChange={() => onToggle(item)} className="peer sr-only" />
+                      <span
+                        aria-hidden="true"
+                        className={cn(
+                          "flex size-4.5 shrink-0 items-center justify-center rounded-[5px] border-[1.5px] transition-colors peer-focus-visible:ring-3 peer-focus-visible:ring-[#128c7e]/25",
+                          on ? "border-[#128c7e] bg-[#128c7e] text-white" : "border-navy-200 bg-white",
+                        )}
+                      >
+                        {on && <Check className="size-3" strokeWidth={3.5} />}
+                      </span>
+                      {item}
+                    </label>
+                  );
+                })}
+              </div>
+            ))}
+            <div className="mt-1 flex items-center justify-between border-t border-divider px-1.5 pt-2 pb-0.5">
+              <button
+                type="button"
+                onClick={onClear}
+                disabled={selected.length === 0}
+                className="rounded-md px-2 py-1 text-[12.5px] font-semibold text-muted hover:text-ink disabled:opacity-40"
+              >
+                Clear
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setOpen(false);
+                  triggerRef.current?.focus();
+                }}
+                className="rounded-full bg-[#128c7e] px-4 py-1.5 text-[12.5px] font-bold text-white transition-colors hover:bg-[#0b6b60]"
+              >
+                Done{selected.length > 0 ? ` (${selected.length})` : ""}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {error && (
         <p id={`${id}-error`} className="text-[12.5px] text-red-600">
           {error}

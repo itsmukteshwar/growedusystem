@@ -11,7 +11,7 @@ import type { ImageBrief } from "@/types";
 import { HeroCarousel } from "./HeroCarousel";
 
 const headingClass =
-  "mb-5.5 text-[clamp(36px,4.8vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-white";
+  "mb-5.5 text-[clamp(36px,4.8vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-ink";
 
 export function Hero() {
   const { start, manage, grow } = heroSlides;
@@ -24,7 +24,7 @@ export function Hero() {
       heading={
         <h1 className={headingClass}>
           From idea to{" "}
-          <span className="relative whitespace-nowrap text-brand-400">
+          <span className="relative whitespace-nowrap text-brand-600">
             inauguration
             <svg
               aria-hidden="true"
@@ -45,7 +45,7 @@ export function Hero() {
       slide={manage}
       heading={
         <h2 className={headingClass}>
-          Great schools run on <span className="text-brand-400">great systems.</span> We bring both.
+          Great schools run on <span className="text-brand-600">great systems.</span> We bring both.
         </h2>
       }
       visual={<ManageVisual image={manage.image} metrics={manage.metrics} />}
@@ -55,7 +55,7 @@ export function Hero() {
       slide={grow}
       heading={
         <h2 className={headingClass}>
-          Your school has more potential. <span className="text-brand-400">Let&apos;s unlock it.</span>
+          Your school has more potential. <span className="text-brand-600">Let&apos;s unlock it.</span>
         </h2>
       }
       visual={<GrowVisual image={grow.image} bars={grow.bars} />}
@@ -63,26 +63,26 @@ export function Hero() {
   ];
 
   return (
-    <section aria-label="Grow Edu System services" className="relative overflow-hidden bg-navy-950 bg-dots">
+    <section aria-label="Grow Edu System services" className="relative overflow-hidden border-b border-navy-100 bg-hero-soft">
       <div
         aria-hidden="true"
-        className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(58_176_75/0.22)_0%,transparent_65%)]"
+        className="absolute -top-40 -right-40 size-160 rounded-full bg-[radial-gradient(circle,rgb(91_201_106/0.22)_0%,transparent_65%)]"
       />
       <div
         aria-hidden="true"
-        className="absolute -bottom-95 -left-65 size-180 rounded-full bg-[radial-gradient(circle,rgb(77_119_184/0.30)_0%,transparent_65%)]"
+        className="absolute -bottom-95 -left-65 size-180 rounded-full bg-[radial-gradient(circle,rgb(159_184_221/0.40)_0%,transparent_65%)]"
       />
 
       <Container className="relative z-2 px-6 pt-18 pb-10">
         <HeroCarousel slides={slides} labels={[start.tab, manage.tab, grow.tab]} />
       </Container>
 
-      <div className="relative z-2 border-t border-white/8">
+      <div className="relative z-2 border-t border-navy-100 bg-white/45 backdrop-blur-sm">
         <Container className="flex flex-wrap items-center justify-between gap-x-8 gap-y-4.5 px-6 pt-6.5 pb-16">
-          <p className="text-[13px] text-white/60">Affiliation expertise across every major board</p>
+          <p className="text-[13px] text-muted">Affiliation expertise across every major board</p>
           <ul className="flex flex-wrap items-center gap-x-9 gap-y-2.5">
             {boardsStrip.map((board) => (
-              <li key={board} className="font-display text-lg font-extrabold tracking-[1px] text-white/78">
+              <li key={board} className="font-display text-lg font-extrabold tracking-[1px] text-navy-800/70">
                 {board}
               </li>
             ))}
@@ -106,19 +106,19 @@ function Slide({ slide, heading, visual }: { slide: SlideData; heading: ReactNod
   return (
     <div className="flex flex-wrap items-center gap-14">
       <div className="min-w-0 flex-[1_1_460px]">
-        <p className="mb-6.5 inline-flex items-center gap-2.5 rounded-full border border-white/14 bg-white/6 py-1.75 pr-3.5 pl-2">
-          <span className="inline-flex size-5.5 items-center justify-center rounded-full bg-brand-400/18">
-            <span className="size-2 rounded-full bg-brand-400" />
+        <p className="mb-6.5 inline-flex items-center gap-2.5 rounded-full border border-navy-100 bg-white/75 py-1.75 pr-3.5 pl-2 shadow-[0_6px_16px_-10px_rgb(13_31_60/0.25)]">
+          <span className="inline-flex size-5.5 items-center justify-center rounded-full bg-brand-50">
+            <span className="size-2 rounded-full bg-brand-500" />
           </span>
-          <span className="text-[13px] font-medium text-white/88">{slide.eyebrow}</span>
+          <span className="text-[13px] font-semibold text-navy-800">{slide.eyebrow}</span>
         </p>
         {heading}
-        <p className="mb-8.5 max-w-130 text-lg leading-[1.7] text-white/74">{slide.description}</p>
+        <p className="mb-8.5 max-w-130 text-lg leading-[1.7] text-body">{slide.description}</p>
         <div className="flex flex-wrap gap-3.5">
           <ButtonLink href={slide.primary.href} size="lg" withArrow>
             {slide.primary.label}
           </ButtonLink>
-          <ButtonLink href={slide.secondary.href} size="lg" variant="outline-light" className="font-semibold">
+          <ButtonLink href={slide.secondary.href} size="lg" variant="outline" className="font-semibold">
             {slide.secondary.label}
           </ButtonLink>
         </div>
@@ -129,7 +129,7 @@ function Slide({ slide, heading, visual }: { slide: SlideData; heading: ReactNod
 }
 
 const floatCard =
-  "relative z-2 animate-float rounded-[20px] bg-white p-5.5 shadow-[0_40px_70px_-30px_rgb(0_0_0/0.6)]";
+  "relative z-2 animate-float rounded-[20px] bg-white p-5.5 ring-1 ring-navy-100 shadow-[0_40px_70px_-30px_rgb(13_31_60/0.35)]";
 
 function StartVisual({
   image,

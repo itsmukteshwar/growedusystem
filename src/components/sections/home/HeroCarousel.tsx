@@ -85,14 +85,14 @@ export function HeroCarousel({ slides, labels }: HeroCarouselProps) {
                 tabIndex={isActive ? 0 : -1}
                 onClick={() => go(i)}
                 onKeyDown={(e) => onTabKey(e, i)}
-                className="group min-h-11 cursor-pointer pt-3 text-left text-white"
+                className="group min-h-11 cursor-pointer pt-3 text-left text-ink"
               >
-                <span className="mb-3 block h-0.75 overflow-hidden rounded-full bg-white/16">
+                <span className="mb-3 block h-0.75 overflow-hidden rounded-full bg-navy-100">
                   {isActive && (
                     <span
                       key={`${active}-${paused}`}
                       className={cn(
-                        "block h-full rounded-full bg-brand-400",
+                        "block h-full rounded-full bg-brand-500",
                         reducedMotion ? "w-full" : "animate-bar-run",
                         paused && "[animation-play-state:paused]",
                       )}
@@ -100,13 +100,13 @@ export function HeroCarousel({ slides, labels }: HeroCarouselProps) {
                   )}
                 </span>
                 <span className="flex items-baseline gap-2.5 font-display">
-                  <span className={cn("text-[13px] font-extrabold", isActive ? "text-brand-400" : "text-white/45")}>
+                  <span className={cn("text-[13px] font-extrabold", isActive ? "text-brand-600" : "text-navy-300")}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <span
                     className={cn(
-                      "text-[15px] font-bold transition-colors group-hover:text-white",
-                      isActive ? "text-white" : "text-white/62",
+                      "text-[15px] font-bold transition-colors group-hover:text-ink",
+                      isActive ? "text-ink" : "text-muted",
                     )}
                   >
                     {label}
@@ -136,7 +136,7 @@ function CarouselButton({ label, onClick, children }: { label: string; onClick: 
       type="button"
       aria-label={label}
       onClick={onClick}
-      className="inline-flex size-12 cursor-pointer items-center justify-center rounded-full border border-white/22 bg-white/6 text-white transition-colors hover:border-white/50 hover:bg-white/14"
+      className="inline-flex size-12 cursor-pointer items-center justify-center rounded-full border border-navy-200 bg-white/70 text-navy-800 transition-colors hover:border-navy-500 hover:bg-white"
     >
       {children}
     </button>

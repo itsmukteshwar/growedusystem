@@ -44,15 +44,17 @@ interface SectionHeaderProps {
   aside?: ReactNode;
   align?: "split" | "center";
   className?: string;
+  /** Extra classes for the H2, e.g. `text-logo` on the home page. */
+  titleClassName?: string;
 }
 
 /** Eyebrow + H2 + optional description, used at the top of most sections. */
-export function SectionHeader({ eyebrow, title, description, aside, align = "split", className }: SectionHeaderProps) {
+export function SectionHeader({ eyebrow, title, description, aside, align = "split", className, titleClassName }: SectionHeaderProps) {
   if (align === "center") {
     return (
       <div className={cn("mx-auto mb-14 max-w-160 text-center", className)}>
         <Eyebrow>{eyebrow}</Eyebrow>
-        <SectionTitle>{title}</SectionTitle>
+        <SectionTitle className={titleClassName}>{title}</SectionTitle>
         {description && <p className="mt-4 text-[17px] leading-[1.7] text-body">{description}</p>}
       </div>
     );
@@ -62,7 +64,7 @@ export function SectionHeader({ eyebrow, title, description, aside, align = "spl
     <div className={cn("mb-10 flex flex-wrap items-end justify-between gap-6", className)}>
       <div className="max-w-155">
         <Eyebrow>{eyebrow}</Eyebrow>
-        <SectionTitle>{title}</SectionTitle>
+        <SectionTitle className={titleClassName}>{title}</SectionTitle>
         {description && <p className="mt-4 text-base leading-[1.7] text-body">{description}</p>}
       </div>
       {aside}

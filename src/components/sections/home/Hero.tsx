@@ -11,7 +11,7 @@ import type { ImageBrief } from "@/types";
 import { HeroCarousel } from "./HeroCarousel";
 
 const headingClass =
-  "mb-5.5 text-[clamp(36px,4.8vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-ink";
+  "mb-5.5 text-[clamp(36px,4.8vw,60px)] leading-[1.05] font-extrabold tracking-[-1.5px] text-logo";
 
 export function Hero() {
   const { start, manage, grow } = heroSlides;
@@ -82,7 +82,7 @@ export function Hero() {
           <p className="text-[13px] text-muted">Affiliation expertise across every major board</p>
           <ul className="flex flex-wrap items-center gap-x-9 gap-y-2.5">
             {boardsStrip.map((board) => (
-              <li key={board} className="font-display text-lg font-extrabold tracking-[1px] text-navy-800/70">
+              <li key={board} className="font-display text-lg font-extrabold tracking-[1px] text-logo/75">
                 {board}
               </li>
             ))}

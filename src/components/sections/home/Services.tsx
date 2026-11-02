@@ -13,6 +13,7 @@ export function Services() {
     <Section className="md:py-24">
       <Container>
         <SectionHeader
+          titleClassName="text-logo"
           eyebrow={servicesIntro.eyebrow}
           title={servicesIntro.title}
           className="mb-12"

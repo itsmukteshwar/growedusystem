@@ -20,7 +20,7 @@ export function About() {
 
         <div className="min-w-0 flex-[1_1_440px]">
           <Eyebrow>{about.eyebrow}</Eyebrow>
-          <SectionTitle className="mb-4.5">{about.title}</SectionTitle>
+          <SectionTitle className="text-logo mb-4.5">{about.title}</SectionTitle>
           <p className="mb-7 text-[17px] leading-[1.75] text-body">{about.description}</p>
           <ul className="mb-8 flex flex-col gap-4">
             {about.features.map((f) => (

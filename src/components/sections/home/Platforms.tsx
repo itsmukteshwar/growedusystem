@@ -13,7 +13,7 @@ export function Platforms() {
       <Container className="flex flex-wrap items-center gap-12">
         <div className="min-w-0 flex-[1_1_420px]">
           <Eyebrow>{platformsIntro.eyebrow}</Eyebrow>
-          <SectionTitle className="mb-4">{platformsIntro.title}</SectionTitle>
+          <SectionTitle className="text-logo mb-4">{platformsIntro.title}</SectionTitle>
           <p className="mb-7 text-base leading-[1.7] text-body">{platformsIntro.description}</p>
           <ul className="grid grid-cols-[repeat(auto-fit,minmax(180px,1fr))] gap-3">
             {platforms.map(({ name, href, icon: Icon, tone }) => (

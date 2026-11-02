@@ -10,7 +10,7 @@ export function Testimonials() {
   return (
     <section className="border-t border-line bg-canvas px-6 py-20 md:py-26">
       <Container>
-        <SectionHeader align="center" {...testimonialsIntro} />
+        <SectionHeader align="center" titleClassName="text-logo" {...testimonialsIntro} />
         <div className="grid grid-cols-[repeat(auto-fit,minmax(min(320px,100%),1fr))] gap-5">
           {testimonials.map((t) =>
             t.variant === "video" ? <VideoTestimonial key={t.image.id} t={t} /> : <CardTestimonial key={t.image.id} t={t} />,

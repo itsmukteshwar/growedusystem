@@ -12,7 +12,7 @@ export function Process() {
   return (
     <section id="process" className="border-y border-line bg-white px-6 py-20 md:py-26">
       <Container>
-        <SectionHeader align="center" {...processIntro} />
+        <SectionHeader align="center" titleClassName="text-logo" {...processIntro} />
 
         <ol className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-5">
           {processSteps.map((step, i) => (

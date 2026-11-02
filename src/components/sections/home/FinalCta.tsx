@@ -22,7 +22,7 @@ export function FinalCta({ data = finalCta }: { data?: CtaData }) {
           className="absolute -top-40 -left-30 size-105 rounded-full bg-[radial-gradient(circle,rgb(91_201_106/0.30),transparent_65%)]"
         />
         <div className="relative min-w-0 flex-[1_1_520px] px-8 py-14 md:px-12 md:py-16">
-          <h2 className="mb-4 text-[clamp(30px,4vw,48px)] leading-[1.08] font-extrabold tracking-[-1.2px] text-ink">
+          <h2 className="mb-4 text-[clamp(30px,4vw,48px)] leading-[1.08] font-extrabold tracking-[-1.2px] text-logo">
             {data.title}
           </h2>
           <p className="mb-8 max-w-130 text-[17px] leading-[1.7] text-body">{data.description}</p>

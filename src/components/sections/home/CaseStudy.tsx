@@ -32,7 +32,7 @@ export function CaseStudy() {
               </li>
             ))}
           </ul>
-          <h2 className="text-[clamp(26px,2.8vw,34px)] leading-[1.15] font-extrabold tracking-[-0.6px] text-ink">
+          <h2 className="text-[clamp(26px,2.8vw,34px)] leading-[1.15] font-extrabold tracking-[-0.6px] text-logo">
             {caseStudy.title}
           </h2>
           <p className="text-base leading-[1.7] text-body">
@@ -45,7 +45,7 @@ export function CaseStudy() {
             {caseStudy.metrics.map((m) => (
               <div key={m.label} className="flex flex-col-reverse rounded-[14px] bg-canvas p-4">
                 <dt className="mt-1 text-[13px] text-muted">{m.label}</dt>
-                <dd className={cn("font-display text-2xl font-extrabold", m.accent ? "text-brand-600" : "text-navy-800")}>
+                <dd className={cn("font-display text-2xl font-extrabold", m.accent ? "text-brand-600" : "text-logo")}>
                   {m.value}
                 </dd>
               </div>

@@ -13,6 +13,7 @@ export function Projects() {
     <Section tone="white">
       <Container>
         <SectionHeader
+          titleClassName="text-logo"
           eyebrow={projectsIntro.eyebrow}
           title={projectsIntro.title}
           aside={<ArrowLink href={projectsIntro.cta.href}>{projectsIntro.cta.label}</ArrowLink>}

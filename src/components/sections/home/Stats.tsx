@@ -22,7 +22,7 @@ export function Stats() {
             </span>
             <div className="flex flex-col-reverse">
               <dt className="mt-1.5 text-sm text-muted">{label}</dt>
-              <dd className="font-display text-[38px] leading-none font-extrabold tracking-[-1px] text-navy-800 tabular-nums">
+              <dd className="font-display text-[38px] leading-none font-extrabold tracking-[-1px] text-logo tabular-nums">
                 {value}
               </dd>
             </div>

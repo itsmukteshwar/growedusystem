@@ -24,6 +24,9 @@
   --color-navy-50: #e9f5ec;
   --color-navy-25: #f1f9f3;
 
+  /* Logo blue (sampled from logo.png) — used sparingly for display headings and key numbers */
+  --color-logo: #083263;
+
   /* Light green surfaces (hero, footer, top bar, CTA panels) */
   --color-mint-50: #f3faf4;
   --color-mint-100: #eaf6ec;

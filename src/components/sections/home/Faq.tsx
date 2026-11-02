@@ -17,7 +17,7 @@ export function Faq() {
       <Container className="flex flex-wrap gap-14">
         <div className="min-w-0 flex-[1_1_340px]">
           <Eyebrow>{faqIntro.eyebrow}</Eyebrow>
-          <SectionTitle className="mb-4">{faqIntro.title}</SectionTitle>
+          <SectionTitle className="text-logo mb-4">{faqIntro.title}</SectionTitle>
           <p className="mb-7 text-base leading-[1.7] text-body">{faqIntro.description}</p>
 
           <div className="flex items-start gap-4 rounded-[20px] border border-line bg-white p-6">

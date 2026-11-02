@@ -29,15 +29,15 @@ export const siteConfig = {
   foundingCountry: "IN",
 
   contact: {
-    phoneDisplay: "+91 87399 90953",
-    phoneHref: "tel:+918739990953",
+    phoneDisplay: "+91 88399 90953",
+    phoneHref: "tel:+918839990953",
     /** Same number in international format, used in structured data. */
-    phoneE164: "+918739990953",
+    phoneE164: "+918839990953",
     email: "growedusystem@gmail.com",
-    whatsappDisplay: "+91 87399 90953",
+    whatsappDisplay: "+91 88399 90953",
     /** Opens WhatsApp with a ready-typed greeting. */
     whatsappHref:
-      "https://wa.me/918739990953?text=" +
+      "https://wa.me/918839990953?text=" +
       encodeURIComponent("Hello Grow Edu System, I'd like to know more about your school services."),
   },
 

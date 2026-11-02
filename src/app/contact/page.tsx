@@ -18,7 +18,7 @@ export const metadata = pageMetadata(
     path: routes.contact,
     title: "Contact Us — Book a Free School Consultation",
     description:
-      "Talk to Grow Edu System's school consultants in Bhopal. Call or WhatsApp +91 87399 90953 or send an enquiry. We reply within one working day.",
+      "Talk to Grow Edu System's school consultants in Bhopal. Call or WhatsApp +91 88399 90953 or send an enquiry. We reply within one working day.",
     keywords: ["contact school consultants", "school consultants Bhopal", "book school consultation", "Grow Edu System contact"],
     updated: "2026-10-31",
   },
